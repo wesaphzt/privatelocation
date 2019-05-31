@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_to_do"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="@dimen/_4sdp">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/favorite_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/_8sdp"
+        android:scrollbars="none" />
+
+        <!--view when empty-->
+        <TextView
+            android:id="@+id/tvEmpty"
+            android:layout_width="match_parent"
+            android:drawableTop="@drawable/ic_empty_view"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:text="@string/dialog_favorites_empty_view"
+            android:textStyle="normal"
+            android:padding="@dimen/activity_margin_small"
+            android:visibility="gone"
+            android:textSize="@dimen/_12sdp"/>
+
+</FrameLayout>

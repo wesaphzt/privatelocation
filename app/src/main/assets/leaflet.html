@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Map</title>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!--
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+
+	<script src="/cdn-cgi/apps/head/WCXTfKrGxLNzfpUe-D2TgHwMpm4.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	-->
+	
+    <link rel="stylesheet" href="leaflet/leaflet.css"/>
+    <script src="leaflet/leaflet.js"></script>
+	
+	<link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+	
+	<link rel="stylesheet" href="font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="leaflet-locate/L.Control.Locate.min.css"/>
+	<script src="leaflet-locate/L.Control.Locate.min.js"></script>
+	
+	<style>
+		html, body {
+			height: 100%;
+			margin: 0;
+		}
+	</style>
+
+	<style> 
+		body {
+			padding: 0; 
+			margin: 0; 
+		} 
+		#map { 
+			height: 100%; 
+			width: 100vw; 
+		} 
+	</style>
+	
+	<style>
+		/*leaflet popup styling*/
+		.leaflet-popup-content { width: 150px; max-width: 200px; height: 100px; max-height: 120px; }
+		.leaflet-popup-tip, .leaflet-popup-content-wrapper { background: #f1f1f1; color: #fff; font-size: 16px; line-height: 24px; }
+		
+		.leaflet-container a.leaflet-popup-close-button { color: #f1f1f1; }
+
+		.popup-favorite { display: block; margin-left: auto; margin-right: auto; padding-top: 5px; }
+		
+		/*fade in & out*/
+		.leaflet-fade-anim .leaflet-popup { transition: none; }
+		
+		/*leaflet zoom control*/
+		.leaflet-touch .leaflet-bar a { width: 45px; height: 45px; line-height: 55px; -webkit-tap-highlight-color: transparent; }
+		.leaflet-touch .leaflet-control-layers, .leaflet-touch .leaflet-bar { border: 0px; }
+		.leaflet-control-zoom-in { margin-bottom: 5px; }
+		
+		/*leaflet zoom control position*/
+		.leaflet-control-zoom.leaflet-bar.leaflet-control { margin-bottom: 50px; margin-right: 25px; }
+		
+		/*leaflet locate control position*/
+		.leaflet-control-locate.leaflet-bar.leaflet-control { margin-bottom: 20px; margin-right: 25px; }
+		
+		/*https://css-tricks.com/circular-3d-buttons/*/
+		.leaflet-touch .leaflet-bar a:first-child {
+			background-color: #f7f7f7;
+			background-image: -webkit-gradient(linear, left top, left bottom, from(#f7f7f7), to(#e7e7e7));
+			background-image: -webkit-linear-gradient(top, #f7f7f7, #e7e7e7); 
+			background-image: -moz-linear-gradient(top, #f7f7f7, #e7e7e7); 
+			background-image: -ms-linear-gradient(top, #f7f7f7, #e7e7e7); 
+			background-image: -o-linear-gradient(top, #f7f7f7, #e7e7e7); 
+			color: #a7a7a7;
+			border-radius: 50%;
+			box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff;
+		}
+		.leaflet-touch .leaflet-bar a:last-child {
+			background-color: #f7f7f7;
+			background-image: -webkit-gradient(linear, left top, left bottom, from(#f7f7f7), to(#e7e7e7));
+			background-image: -webkit-linear-gradient(top, #f7f7f7, #e7e7e7); 
+			background-image: -moz-linear-gradient(top, #f7f7f7, #e7e7e7); 
+			background-image: -ms-linear-gradient(top, #f7f7f7, #e7e7e7); 
+			background-image: -o-linear-gradient(top, #f7f7f7, #e7e7e7); 
+			color: #a7a7a7;
+			border-radius: 50%;
+			box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff;
+		}
+		
+		/*popup buttons*/
+		.btn { height: 40px; font-size: 18px; margin-bottom: 10px; margin-left: auto; margin-right: auto; display: block; 
+			outline: 0 !important; border-color: none;
+		}
+		.btn.btn-success { color: #fff; background-color: #5cb85c; background-image: linear-gradient(to bottom, #5cb85c, #419641);
+			border-color: #3e8f3e #3e8f3e #3e8f3e;
+		}
+		.btn.btn-info { color: #fff; background-color: #5bc0de; background-image: linear-gradient(to bottom, #5bc0de, #2aabd2);
+			border-color: #28A4C9 #28A4C9 #28A4C9;
+		}
+	</style>
+		
+</head>
+<body>
+
+	<div id='map'></div>
+	
+	<script>
+		//set map boundaries
+		var southWest = L.latLng(-90, -180),
+			northEast = L.latLng(90, 180);
+		var bounds = L.latLngBounds(southWest, northEast);
+		
+		//set up map
+		var map = L.map("map", {
+			//disable zoomControl when initializing map (topleft by default)
+			zoomControl: false,
+			//set map boundaries
+			maxBounds: bounds,
+			maxBoundsViscosity: 1.0
+		});
+		
+		//add locate control
+		map.addControl(new L.Control.Locate( {
+			position: 'bottomright',
+            enableHighAccuracy: true
+		}));
+		
+		//add zoom control
+		map.addControl(new L.control.zoom( {
+			position:'bottomright'
+		}));
+
+		//add default location marker
+		var marker = new L.marker();
+
+		//default tile provider
+		L.tileLayer('https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}{r}.png', {
+		attribution: '<a href="https://wikimediafoundation.org/wiki/Maps_Terms_of_Use">Wikimedia</a>',
+		minZoom: 2,
+		maxZoom: 17
+		}).addTo(map);
+		
+		//functions
+		//------------------------------------------------------------>
+		//-----------------local-------------------->
+		function onLocationError() {
+			Android.onLocationError();
+		}
+		
+		//override annoying geolocation alerts & more and redirect to console instead
+		function alert(message) { 
+			console.info(message);
+		} 
+		
+		//on click move marker and center map
+		function onMapClick(e) {
+			if (typeof marker != 'undefined')
+				map.removeLayer(marker);
+			marker = L.marker(e.latlng).addTo(map);
+			map.panTo(e.latlng);
+		}
+
+		//keep marker centered
+		//causes issues in combination with moveend
+		function onMove(e) {
+			marker.setLatLng(map.getCenter());
+		}
+		
+		//add onclicks for popup text
+		document.body.onclick= function(e){
+			e=window.event? event.srcElement: e.target;
+			if(e.className && e.className.indexOf('popup-text-custom')!=-1)onPopupTextClick();
+			if(e.className && e.className.indexOf('popup-favorite')!=-1)onPopupTextFavoriteClick();
+		}
+		
+		//called on moveend
+		function popupMoveEnd(e) {
+			//custom class to hook onclick
+			//https://www.tutorialrepublic.com/twitter-bootstrap-button-generator.php
+			var customPopup = 	"<button class='popup-text-custom btn btn-success btn-block'><span class='glyphicon glyphicon-triangle-right'></span> Set Location</button><button type='button' class='btn btn-info popup-favorite'><span class='glyphicon glyphicon-heart'></span> Favorite</button>";
+
+			//bind text to marker & open
+			marker.bindPopup(customPopup,{ autoPan:false }).openPopup();
+			
+			zoom = map.getZoom();
+			Android.setLatLongZoom(marker.getLatLng().toString(), zoom);
+		}
+		
+		//close set location popup on move start
+		function popupMoveStart(e) {
+			map.closePopup();
+		}
+		
+		//------------------app--------------------->
+		function setOnMap(lat, lng) {
+			zoom = map.getZoom();
+			map.setView(new L.LatLng(lat, lng), zoom);
+		}
+		
+		function onPopupTextClick(e) {
+			//call app method
+			Android.setMockLocation(marker.getLatLng().toString());
+		}
+		
+		function onPopupTextFavoriteClick(e) {
+			//call app method
+			Android.addFavoriteLocation(marker.getLatLng().toString());
+		}
+		
+		function findLocation(e) {
+			map.locate({
+				setView: true
+			});
+		}
+		
+		function getLatLong(e) {
+			Android.getLatLong(e.latlng.wrap().toString());
+		}
+
+		//listeners
+		//------------------------------------------------------------>
+		//map.on('click', onMapClick);
+		map.on('move', onMove);
+		map.on('moveend', popupMoveEnd);
+		
+		map.on('movestart', popupMoveStart);
+		map.on('locationerror', onLocationError);
+	
+	</script>
+
+</body>
+</html>
+

@@ -1,0 +1,90 @@
+<resources>
+    <string name="app_name">Private Location</string>
+    <string name="app_desc">Open-Source Location Privacy</string>
+
+    <string name="app_github_dev">https://github.com/wesaphzt</string>
+    <string name="app_github">https://github.com/wesaphzt/PrivateLocation</string>
+
+    <!--actionbar-->
+    <string name="action_favorites">Favorites</string>
+    <string name="action_go_to">Go To</string>
+    <string name="action_donate">Donate</string>
+    <string name="action_about">About</string>
+
+    <!--titles-->
+    <string name="fragment_donate_title">Donate</string>
+    <string name="fragment_donate_clipboard_label">Copied address</string>
+    <string name="fragment_donate_clipboard_message">Address copied to clipboard</string>
+    <string name="fragment_about_title">About</string>
+
+    <!--dialog fragments-->
+    <string name="dialog_favorites_title">Favorite Locations</string>
+    <string name="dialog_favorites_empty_view">Nothing here…</string>
+    <string name="dialog_favorites_add_hint">Name</string>
+    <string name="dialog_favorites_add_lat_long">Latitude: %1$f \nLongitude: %2$f</string>
+    <string name="dialog_favorites_list_name_hint">Name</string>
+    <string name="dialog_favorites_list_edit_desc">Edit</string>
+    <string name="dialog_favorites_list_del_desc">Delete</string>
+
+    <string name="dialog_go_to_title">Location Coordinates</string>
+    <string name="dialog_go_to_lat_hint">Latitude</string>
+    <string name="dialog_go_to_long_hint">Longitude</string>
+    <string name="dialog_go_to_invalid_range">Not a valid range</string>
+    <string name="dialog_go_to_invalid_number">Not a valid number</string>
+    <string name="dialog_go_to_invalid_empty">Can\'t be empty</string>
+
+    <!--main activity dialogs-->
+    <string name="dialog_first_run_title">Location Settings</string>
+    <string name="dialog_first_run_message">If you experience issues with your real location being exposed, particularly with Google Maps based apps and services,
+        it\'s recommended you disable any settings in your Location settings that use Wi-Fi points and more to help determine your location faster and more accurately.</string>
+
+    <string name="dialog_mock_location_title">Mock Location Disabled</string>
+    <string name="dialog_mock_location_message_m_over">Select this app in the mock location app setting.</string>
+    <string name="dialog_mock_location_message_under_m">Enable mock locations in settings.</string>
+
+    <string name="dialog_developer_settings_title">Developer Mode Disabled</string>
+    <string name="dialog_developer_settings_message">Enable developer options by clicking on your phone build number 7 (seven) times.</string>
+
+    <string name="dialog_developer_settings_nougat_title">Developer Settings</string>
+    <string name="dialog_developer_settings_nougat_message">Please make sure developer settings are enabled before trying to set location to prevent issues on Nougat.
+        \n\nYou can do this by clicking on your phone build number 7 (seven) times.</string>
+
+    <!--about-->
+    <string name="about_overview_logo_desc">About overview app logo</string>
+
+    <string name="about_contribute_card_title">Contribute</string>
+    <string name="about_contribute_title">Report Bugs</string>
+    <string name="about_contribute_desc">Report bugs or request new features</string>
+
+    <string name="about_developer_image_desc">Author image</string>
+    <string name="about_developer_title">wesaphzt</string>
+    <string name="about_developer_desc">Developer</string>
+    <string name="about_developer_card_title">Developer</string>
+
+    <string name="about_version_title">Version</string>
+    <string name="about_version_image_desc">Version image</string>
+
+    <string name="about_license_title">License</string>
+    <string name="about_license_desc">GPL v3.0 License</string>
+    <string name="about_license_image_desc">License image</string>
+
+    <string name="about_source_title">Source code</string>
+    <string name="about_source_image_desc">Source code image</string>
+
+    <string name="about_bug_report_image_desc">Bug report image</string>
+
+    <!--donate-->
+    <string name="donate_bitcoin_image_desc">Bitcoin image</string>
+    <string name="donate_litecoin_image_desc">Litecoin image</string>
+    <string name="donate_ethereum_image_desc">Ethereum image</string>
+    <string name="donate_monero_image_desc">Monero image</string>
+
+    <string name="donate_bitcoin_address">1GCkvAg9oG79niQTbh6EH9rPALQDXKyHKK</string>
+    <string name="donate_litecoin_address">LV687s3wVdhmLZyJMFxomJHdHFXeFAKT5R</string>
+    <string name="donate_ethereum_address">0x785a8804c85b88683a5cce5e53f60878831e5d03</string>
+    <string name="donate_monero_address">43Vijzdt3y42mmT954rSYPjXYabDsjYEV2KyhxfC46JibR2ny9VmRS1fjdJTHxxPVPFE8ajgArwjWfyaRgjh9vcNAwmkfJj</string>
+
+    <string name="donate_note_text">I\'m not a professional app developer, but I enjoy contributing to the open-source community in my spare time.
+        \n\nIf you find them useful and want to support me in my mission to create privacy-oriented apps, tips are appreciated.</string>
+    <string name="donate_note_image_desc">Text emoji image</string>
+</resources>
