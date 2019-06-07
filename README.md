@@ -4,11 +4,20 @@
 
 A simple app to set your location to anywhere in the world, and improve general phone location privacy.
 
-Apps on your phone can require location permissions to work, and make repeated and unnecessary location requests in the background throughout the day.
+This app will fake/spoof both your GPS and network location on your phone.
 
-Setting your location somewhere else will help protect your privacy.
+Many apps on your phone won't work without location permissions, and can make repeated and unnecessary location requests in the background throughout the day.
+Setting your location somewhere else will help to mitigate that and protect your privacy.
 
-This is one of the few location apps that doesn't rely on Google Maps.
+The open-source Leaflet map library along with Wikimedia to provide map tiles are used in place of Google Maps.
+
+<p align="center">
+<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/01-main.png?raw=true" width="200" height="400"/> 
+
+<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/02-favorites.png?raw=true" width="200" height="400"/> 
+
+<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/03-goto.png?raw=true" width="200" height="400"/>
+</p>
 
 [<img alt="Get it on F-Droid" height="75" src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png">](https://f-droid.org/packages/com.wesaphzt.privatelocation/)
 
@@ -42,8 +51,8 @@ The map is provided by Wikimedia, [Maps Terms of Service](https://foundation.wik
 [GPL v3.0](LICENSE)
 
 ## Tips
-I'm not a professional app developer, but I enjoy contributing to the open-source community in my spare time.
-If you find them useful and want to support me in my mission to create privacy-oriented apps, tips are appreciated.
+I'm not a professional app developer, but I enjoy contributing to the open-source community.
+If you find them useful, consider supporting me in some way, in my mission to create privacy-oriented & open-source apps.
 
 BTC: 1GCkvAg9oG79niQTbh6EH9rPALQDXKyHKK
 
