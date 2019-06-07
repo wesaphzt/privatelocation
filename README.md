@@ -1,6 +1,6 @@
 # Private Location
 <a href="https://github.com/wesaphzt/privatelocation/releases/latest" alt="GitHub Release"><img src="https://img.shields.io/github/release/wesaphzt/privatelocation.svg?logo=github"></a>
-<img alt="GitHub" src="https://img.shields.io/github/license/wesaphzt/privatelocation.svg">
+[![License](https://img.shields.io/github/license/wesaphzt/privatelocation.svg)](LICENSE)
 
 A simple app to set your location to anywhere in the world, and improve general phone location privacy.
 
