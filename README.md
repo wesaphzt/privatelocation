@@ -7,7 +7,7 @@ Setting your location somewhere else will help protect your privacy.
 
 This is one of the few location apps that doesn't rely on Google Maps.
 
-<img src="https://f-droid.org/badge/get-it-on.png" height="75">
+<a href="https://f-droid.org/en/packages/com.wesaphzt.privatelocation"><img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on F-Droid" height="75"></a>
 
 ## Features
 - Set phone location
