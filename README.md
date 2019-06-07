@@ -2,15 +2,24 @@
 <a href="https://github.com/wesaphzt/privatelocation/releases/latest" alt="GitHub Release"><img src="https://img.shields.io/github/release/wesaphzt/privatelocation.svg?logo=github"></a>
 [![License](https://img.shields.io/github/license/wesaphzt/privatelocation.svg)](LICENSE)
 
+[<img alt="Get it on F-Droid" height="75" src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png">](https://f-droid.org/packages/com.wesaphzt.privatelocation/)
+
 A simple app to set your location to anywhere in the world, and improve general phone location privacy.
 
-Apps on your phone can require location permissions to work, and make repeated and unnecessary location requests in the background throughout the day.
+This app will fake/spoof both your GPS and network location on your phone.
 
-Setting your location somewhere else will help protect your privacy.
+Many apps on your phone won't work without location permissions, and can make repeated and unnecessary location requests in the background throughout the day.
+Setting your location somewhere else will help to mitigate that and protect your privacy.
 
-This is one of the few location apps that doesn't rely on Google Maps.
+The open-source Leaflet map library along with Wikimedia to provide map tiles are used in place of Google Maps.
 
-[<img alt="Get it on F-Droid" height="75" src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png">](https://f-droid.org/packages/com.wesaphzt.privatelocation/)
+<p align="center">
+<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/01-main.png?raw=true" width="200" height="400"/> 
+
+<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/02-favorites.png?raw=true" width="200" height="400"/> 
+
+<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/03-goto.png?raw=true" width="200" height="400"/>
+</p>
 
 ## Features
 - Set phone location
@@ -33,17 +42,17 @@ For better privacy, or if you're having issues with your real location being exp
 ## Issues
 To contribute, or to report issues please use the [Issue Tracker](https://github.com/wesaphzt/privatelocation/issues/).
 
-## Privacy Policy
-No data is collected from your phone and the app is free from ads and tracking.
+## Privacy
+Free from ads and tracking.
 
-The map is provided by Wikimedia, [Maps Terms of Service](https://foundation.wikimedia.org/wiki/Maps_Terms_of_Use/).
+Map tiles are provided by Wikimedia [(Maps Terms of Service)](https://foundation.wikimedia.org/wiki/Maps_Terms_of_Use/).
 
 ## License
 [GPL v3.0](LICENSE)
 
 ## Tips
-I'm not a professional app developer, but I enjoy contributing to the open-source community in my spare time.
-If you find them useful and want to support me in my mission to create privacy-oriented apps, tips are appreciated.
+I'm not a professional app developer, but I enjoy contributing to the open-source community.
+If you find them useful consider supporting me in some way, on my mission to create privacy-oriented & open-source apps.
 
 BTC: 1GCkvAg9oG79niQTbh6EH9rPALQDXKyHKK
 
