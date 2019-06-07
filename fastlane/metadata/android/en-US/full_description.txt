@@ -1,0 +1,7 @@
+A simple app to set your location to anywhere in the world, and improve general phone location privacy.
+This app will fake/spoof both your GPS and network location on your phone.
+
+Many apps on your phone won't work without location permissions, and can make repeated and unnecessary location requests in the background throughout the day.
+Setting your location somewhere else will help to mitigate that and protect your privacy.
+
+The open-source Leaflet map library along with Wikimedia to provide map tiles are used in place of Google Maps.
