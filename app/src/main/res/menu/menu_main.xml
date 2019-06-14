@@ -21,6 +21,11 @@
     <group
         android:id="@+id/menu_bottom">
         <item
+            android:id="@+id/action_settings"
+            android:title="@string/action_settings"
+            android:icon="@drawable/ic_action_settings_white_24dp"
+            app:showAsAction="ifRoom" />
+        <item
             android:id="@+id/action_donate"
             android:title="@string/action_donate"
             app:showAsAction="never"/>

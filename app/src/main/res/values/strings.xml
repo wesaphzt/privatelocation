@@ -8,6 +8,7 @@
     <!--actionbar-->
     <string name="action_favorites">Favorites</string>
     <string name="action_go_to">Go To</string>
+    <string name="action_settings">Settings</string>
     <string name="action_donate">Donate</string>
     <string name="action_about">About</string>
 
@@ -84,7 +85,6 @@
     <string name="donate_ethereum_address">0x785a8804c85b88683a5cce5e53f60878831e5d03</string>
     <string name="donate_monero_address">43Vijzdt3y42mmT954rSYPjXYabDsjYEV2KyhxfC46JibR2ny9VmRS1fjdJTHxxPVPFE8ajgArwjWfyaRgjh9vcNAwmkfJj</string>
 
-    <string name="donate_note_text">I\'m not a professional app developer, but I enjoy contributing to the open-source community in my spare time.
-        \n\nIf you find them useful and want to support me in my mission to create privacy-oriented apps, tips are appreciated.</string>
+    <string name="donate_note_text">If you find these apps useful, consider supporting me in some way in my mission to create simple, useful, privacy-oriented, open-source apps.</string>
     <string name="donate_note_image_desc">Text emoji image</string>
 </resources>

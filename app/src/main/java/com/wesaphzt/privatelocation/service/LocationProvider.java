@@ -12,7 +12,7 @@ public class LocationProvider {
     private String providerName;
     public Context context;
 
-    LocationProvider(String name, Context context) {
+    public LocationProvider(String name, Context context) {
         this.providerName = name;
         this.context = context;
 
@@ -55,7 +55,7 @@ public class LocationProvider {
         locationManager.setTestProviderLocation(providerName, mockLocation);
     }
 
-    void shutdown() {
+    public void shutdown() {
         LocationManager locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
         locationManager.removeTestProvider(providerName);
     }
