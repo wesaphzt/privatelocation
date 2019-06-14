@@ -1,4 +1,4 @@
-package com.wesaphzt.privatelocation.service;
+package com.wesaphzt.privatelocation.receivers;
 
 import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.location.LocationManager;
 import android.os.Build;
+
+import com.wesaphzt.privatelocation.service.LocationProvider;
 
 public class ActionReceiver extends BroadcastReceiver {
 
