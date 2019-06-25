@@ -26,8 +26,7 @@
                 android:layout_height="wrap_content"
                 android:padding="@dimen/activity_margin_small"
                 android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:background="@drawable/border_dark">
+                android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="@dimen/card_thumbnail_size"
@@ -204,8 +203,7 @@
                     android:text="@string/about_developer_card_title"
                     android:padding="@dimen/activity_margin_small"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textStyle="bold"
-                    android:background="@color/lightGrey"/>
+                    android:textStyle="bold"/>
 
                 <!-- developer -->
                 <LinearLayout
@@ -276,8 +274,7 @@
                     android:padding="@dimen/activity_margin_small"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textStyle="bold"
-                    android:text="@string/about_contribute_title"
-                    android:background="@color/lightGrey"/>
+                    android:text="@string/about_contribute_title"/>
 
                 <!-- bug reports -->
                 <LinearLayout

@@ -12,6 +12,9 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!--pre-oreo-->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <!--https://pixabay.com/vectors/the-location-of-the-map-where-way-1724293/-->
     <application
@@ -34,7 +37,13 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name="com.wesaphzt.privatelocation.service.ActionReceiver"/>
+        <receiver android:name="com.wesaphzt.privatelocation.receivers.ActionReceiver"/>
+
+        <receiver android:name=".receivers.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
 
         <service
             android:name=".service.LocationService"

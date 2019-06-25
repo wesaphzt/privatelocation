@@ -21,6 +21,7 @@ import com.wesaphzt.privatelocation.fragments.DialogFragmentFavorite;
 import com.wesaphzt.privatelocation.fragments.DialogFragmentGoTo;
 import com.wesaphzt.privatelocation.fragments.FragmentAbout;
 import com.wesaphzt.privatelocation.fragments.FragmentDonate;
+import com.wesaphzt.privatelocation.fragments.FragmentSettings;
 import com.wesaphzt.privatelocation.interfaces.ILatLong;
 import com.wesaphzt.privatelocation.interfaces.JSInterface;
 import com.wesaphzt.privatelocation.service.LocationService;
@@ -44,6 +45,7 @@ import android.view.MenuItem;
 import android.view.Menu;
 
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements ILatLong {
@@ -213,12 +215,18 @@ public class MainActivity extends AppCompatActivity
     }
 
     public boolean isDevMode() {
-        //24 - 25 (nougat): trouble builds, for some reason these builds always return true regardless of dev options enabled or not (dialog shown on first run for these users)
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            return Settings.Secure.getInt(context.getContentResolver(), Settings.Global.DEVELOPMENT_SETTINGS_ENABLED, 0) != 0;
-        } else {
-            //17 - 23: dev options enabled by default but still return default false value, so set default to true here
-            return Settings.Secure.getInt(context.getContentResolver(), Settings.Global.DEVELOPMENT_SETTINGS_ENABLED, 1) != 0;
+        try {
+            //24 - 25 (nougat): trouble builds, for some reason these builds always return true regardless of dev options enabled or not (dialog shown on first run for these users)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                return Settings.Secure.getInt(context.getContentResolver(), Settings.Global.DEVELOPMENT_SETTINGS_ENABLED, 0) != 0;
+            } else {
+                //17 - 23: dev options enabled by default but still return default false value, so set default to true here
+                return Settings.Secure.getInt(context.getContentResolver(), Settings.Global.DEVELOPMENT_SETTINGS_ENABLED, 1) != 0;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(context, "Please ensure developer settings are enabled", Toast.LENGTH_LONG).show();
+            return false;
         }
     }
 
@@ -359,6 +367,9 @@ public class MainActivity extends AppCompatActivity
             FragmentManager fm = getSupportFragmentManager();
             DialogFragmentGoTo dialogFragment = new DialogFragmentGoTo();
             dialogFragment.show(fm, "FragmentGoTo");
+
+        } else if (id == R.id.action_settings) {
+            fragment = new FragmentSettings();
 
         } else if (id == R.id.action_donate) {
             fragment = new FragmentDonate();

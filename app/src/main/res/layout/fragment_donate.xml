@@ -29,37 +29,18 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/activity_margin_small"
                 android:paddingBottom="@dimen/activity_margin_small"
-                android:gravity="center_vertical"
-                android:background="@drawable/border_dark">
+                android:gravity="center_vertical">
 
-                <ImageView
-                    android:id="@+id/donate_note_image"
-                    android:contentDescription="@string/donate_note_image_desc"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/activity_margin"
-                    android:layout_marginLeft="@dimen/activity_margin"
-                    android:layout_marginEnd="@dimen/activity_margin"
-                    android:layout_marginRight="@dimen/activity_margin"
-                    android:src="@drawable/ic_donate_note_text_emoji" />
-
-                <LinearLayout
-                    android:orientation="vertical"
+                <TextView
+                    android:id="@+id/donate_note_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical" >
+                    android:layout_marginStart="@dimen/activity_margin"
+                    android:layout_marginEnd="@dimen/activity_margin"
+                    android:text="@string/donate_note_text"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textSize="@dimen/_12sdp"/>
 
-                    <TextView
-                        android:id="@+id/donate_note_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/activity_margin"
-                        android:text="@string/donate_note_text"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textSize="@dimen/_10sdp"
-                        android:textStyle="bold"/>
-
-                </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -227,8 +208,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:background="?android:attr/selectableItemBackground"
-                android:gravity="center_vertical">
+                android:background="?android:attr/selectableItemBackground">
 
                 <LinearLayout
                     android:id="@+id/donate_monero_layout"
@@ -251,16 +231,17 @@
                         android:src="@drawable/ic_donate_monero_logo" />
 
                     <LinearLayout
-                        android:orientation="vertical"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical">
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/donate_monero_address"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="@dimen/activity_margin"
+                            android:gravity="center_vertical"
                             android:textAppearance="?android:attr/textAppearanceMedium" />
 
                     </LinearLayout>

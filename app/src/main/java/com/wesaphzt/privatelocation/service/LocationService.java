@@ -16,6 +16,7 @@ import androidx.core.app.NotificationCompat;
 
 import com.wesaphzt.privatelocation.MainActivity;
 import com.wesaphzt.privatelocation.R;
+import com.wesaphzt.privatelocation.receivers.ActionReceiver;
 
 import static androidx.core.app.NotificationCompat.PRIORITY_MIN;
 
@@ -102,6 +103,7 @@ public class LocationService extends Service {
                     .setSmallIcon(R.drawable.ic_notification_pin_drop_white_24dp)
                     .setContentTitle(getString(R.string.app_name) + " is running")
                     .setCategory(NotificationCompat.CATEGORY_SERVICE)
+                    .setColor(getColor(R.color.colorPrimary))
                     .setContentIntent(pendingIntent)
                     .setWhen(System.currentTimeMillis())
                     .setTicker(getString(R.string.app_name) + " is running")
@@ -123,6 +125,7 @@ public class LocationService extends Service {
                     .setPriority(PRIORITY_MIN)
                     .setVisibility(NotificationCompat.VISIBILITY_SECRET)
                     .setCategory(NotificationCompat.CATEGORY_SERVICE)
+                    .setColor(getColor(R.color.colorPrimary))
                     .setContentIntent(pendingIntent)
                     .setWhen(System.currentTimeMillis())
                     .setTicker(getString(R.string.app_name) + " is running")
