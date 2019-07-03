@@ -1,0 +1,3 @@
+- Minor design updates
+- Start service on boot option added
+- Fastlane metadata for F-droid added
