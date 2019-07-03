@@ -51,8 +51,7 @@ Map tiles are provided by Wikimedia [(Maps Terms of Service)](https://foundation
 [GPL v3.0](LICENSE)
 
 ## Tips
-I'm not a professional app developer, but I enjoy contributing to the open-source community.
-If you find them useful consider supporting me in some way, on my mission to create privacy-oriented & open-source apps.
+If you find these apps useful, consider supporting me in some way in my mission to create simple, useful, privacy-oriented, open-source apps.
 
 BTC: 1GCkvAg9oG79niQTbh6EH9rPALQDXKyHKK
 
