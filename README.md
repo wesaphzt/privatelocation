@@ -1,6 +1,6 @@
 # Private Location
 <a href="https://github.com/wesaphzt/privatelocation/releases/latest" alt="GitHub Release"><img src="https://img.shields.io/github/release/wesaphzt/privatelocation.svg?logo=github"></a>
-[![License](https://img.shields.io/github/license/wesaphzt/privatelocation.svg)](LICENSE)
+[![License](https://img.shields.io/github/license/wesaphzt/privatelocation.svg?color=green)](LICENSE)
 
 [<img alt="Get it on F-Droid" height="75" src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png">](https://f-droid.org/packages/com.wesaphzt.privatelocation/)
 
