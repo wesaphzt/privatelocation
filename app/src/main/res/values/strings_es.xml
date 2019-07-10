@@ -1,0 +1,90 @@
+<resources>
+    <string name="app_name">Private Location</string>
+    <string name="app_desc">Open-Source Location Privacy</string>
+
+    <string name="app_github_dev">https://github.com/wesaphzt</string>
+    <string name="app_github">https://github.com/wesaphzt/PrivateLocation</string>
+
+    <!--actionbar-->
+    <string name="action_favorites">Favorito</string>
+    <string name="action_go_to">Ir a</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="action_donate">Donar</string>
+    <string name="action_about">Acerca de</string>
+
+    <!--titles-->
+    <string name="fragment_donate_title">Dona</string>
+    <string name="fragment_donate_clipboard_label">Dirección copiada</string>
+    <string name="fragment_donate_clipboard_message">Dirección copiada al portapapeles</string>
+    <string name="fragment_about_title">Acerca de</string>
+
+    <!--dialog fragments-->
+    <string name="dialog_favorites_title">Lugares favoritos</string>
+    <string name="dialog_favorites_empty_view">Ничего нет…</string>
+    <string name="dialog_favorites_add_hint">Название</string>
+    <string name="dialog_favorites_add_lat_long">Широта: %1$f \nLongitude: %2$f</string>
+    <string name="dialog_favorites_list_name_hint">Название</string>
+    <string name="dialog_favorites_list_edit_desc">Изменить</string>
+    <string name="dialog_favorites_list_del_desc">Удалить</string>
+
+    <string name="dialog_go_to_title">Координаты местоположения</string>
+    <string name="dialog_go_to_lat_hint">Широта</string>
+    <string name="dialog_go_to_long_hint">Долгота</string>
+    <string name="dialog_go_to_invalid_range">Недопустимый диапазон</string>
+    <string name="dialog_go_to_invalid_number">Недопустимое значение</string>
+    <string name="dialog_go_to_invalid_empty">Не может быть пустым</string>
+
+    <!--main activity dialogs-->
+    <string name="dialog_first_run_title">Настройки местоположения</string>
+    <string name="dialog_first_run_message">Если у вас возникают проблемы с отображением вашего реального местоположения, особенно в приложениях и сервисах на основе Карт Google, рекомендуется отключить
+        в настройках местоположения любые параметры, использующие точки Wi-Fi и другие, чтобы быстрее и точнее определить ваше местоположение.</string>
+
+    <string name="dialog_mock_location_title">Фиктивное местоположение отключено</string>
+    <string name="dialog_mock_location_message_m_over">Выберите это приложение в настройках фиктивного местоположения.</string>
+    <string name="dialog_mock_location_message_under_m">Включите фиктивные местоположения в настройках.</string>
+
+    <string name="dialog_developer_settings_title">Режим разработчика отключен</string>
+    <string name="dialog_developer_settings_message">Включите параметры разработчика, кликнув на номер сборки своего телефона 7 (семь) раз.</string>
+
+    <string name="dialog_developer_settings_nougat_title">Настройки разработчика</string>
+    <string name="dialog_developer_settings_nougat_message">Пожалуйста, убедитесь, что настройки разработчика включены, прежде чем пытаться установить местоположение, чтобы предотвратить проблемы на Nougat.
+        \n\nВы можете сделать это, кликнув на номере сборки вашего телефона 7 (семь) раз.</string>
+
+    <!--about-->
+    <string name="about_overview_logo_desc">Сведения о логотипе приложения</string>
+
+    <string name="about_contribute_card_title">Внести свой вклад</string>
+    <string name="about_contribute_title">Сообщить об ошибках</string>
+    <string name="about_contribute_desc">Сообщить об ошибках или запросить новые возможности</string>
+
+    <string name="about_developer_image_desc">Изображение автора</string>
+    <string name="about_developer_title">wesaphzt</string>
+    <string name="about_developer_desc">Разработчик</string>
+    <string name="about_developer_card_title">Разработчик</string>
+
+    <string name="about_version_title">Версия</string>
+    <string name="about_version_image_desc">Изображение версии</string>
+
+    <string name="about_license_title">Лицензия</string>
+    <string name="about_license_desc">Лицензия GPL v3.0</string>
+    <string name="about_license_image_desc">Изображение лицензии</string>
+
+    <string name="about_source_title">Исходный код</string>
+    <string name="about_source_image_desc">Изображение исходного кода</string>
+
+    <string name="about_bug_report_image_desc">Изображение отчета об ошибке</string>
+
+    <!--donate-->
+    <string name="donate_bitcoin_image_desc">Изображение Bitcoin</string>
+    <string name="donate_litecoin_image_desc">Изображение Litecoin</string>
+    <string name="donate_ethereum_image_desc">Изображение Ethereum</string>
+    <string name="donate_monero_image_desc">Изображение Monero</string>
+
+    <string name="donate_bitcoin_address">1GCkvAg9oG79niQTbh6EH9rPALQDXKyHKK</string>
+    <string name="donate_litecoin_address">LV687s3wVdhmLZyJMFxomJHdHFXeFAKT5R</string>
+    <string name="donate_ethereum_address">0x785a8804c85b88683a5cce5e53f60878831e5d03</string>
+    <string name="donate_monero_address">43Vijzdt3y42mmT954rSYPjXYabDsjYEV2KyhxfC46JibR2ny9VmRS1fjdJTHxxPVPFE8ajgArwjWfyaRgjh9vcNAwmkfJj</string>
+
+    <string name="donate_note_text">Если вы находите эти приложения полезными, подумайте о том, чтобы как-то поддержать меня в моей миссии по созданию простых, полезных, ориентированных на конфиденциальность приложений с открытым исходным кодом.</string>
+    <string name="donate_note_image_desc">Изображение текстового эмодзи</string>
+</resources>
