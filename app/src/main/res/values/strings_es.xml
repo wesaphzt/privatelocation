@@ -20,26 +20,26 @@
 
     <!--dialog fragments-->
     <string name="dialog_favorites_title">Lugares favoritos</string>
-    <string name="dialog_favorites_empty_view">Ничего нет…</string>
-    <string name="dialog_favorites_add_hint">Название</string>
-    <string name="dialog_favorites_add_lat_long">Широта: %1$f \nLongitude: %2$f</string>
-    <string name="dialog_favorites_list_name_hint">Название</string>
-    <string name="dialog_favorites_list_edit_desc">Изменить</string>
-    <string name="dialog_favorites_list_del_desc">Удалить</string>
+    <string name="dialog_favorites_empty_view">Nada aquí…</string>
+    <string name="dialog_favorites_add_hint">Nombre</string>
+    <string name="dialog_favorites_add_lat_long">Latitud: %1$f \nLongitud: %2$f</string>
+    <string name="dialog_favorites_list_name_hint">Nombre</string>
+    <string name="dialog_favorites_list_edit_desc">Editar</string>
+    <string name="dialog_favorites_list_del_desc">Borrar</string>
 
-    <string name="dialog_go_to_title">Координаты местоположения</string>
-    <string name="dialog_go_to_lat_hint">Широта</string>
-    <string name="dialog_go_to_long_hint">Долгота</string>
-    <string name="dialog_go_to_invalid_range">Недопустимый диапазон</string>
-    <string name="dialog_go_to_invalid_number">Недопустимое значение</string>
-    <string name="dialog_go_to_invalid_empty">Не может быть пустым</string>
+    <string name="dialog_go_to_title">Coordinadas del lugar</string>
+    <string name="dialog_go_to_lat_hint">Latitud</string>
+    <string name="dialog_go_to_long_hint">Longitud</string>
+    <string name="dialog_go_to_invalid_range">No es un rango válido</string>
+    <string name="dialog_go_to_invalid_number">No es un número válido</string>
+    <string name="dialog_go_to_invalid_empty">No puede estar vacía</string>
 
     <!--main activity dialogs-->
-    <string name="dialog_first_run_title">Настройки местоположения</string>
-    <string name="dialog_first_run_message">Если у вас возникают проблемы с отображением вашего реального местоположения, особенно в приложениях и сервисах на основе Карт Google, рекомендуется отключить
-        в настройках местоположения любые параметры, использующие точки Wi-Fi и другие, чтобы быстрее и точнее определить ваше местоположение.</string>
+    <string name="dialog_first_run_title">Ajustes de localización</string>
+    <string name="dialog_first_run_message">Si experimenta problemas con la exposición de su ubicación real, especialmente con las aplicaciones y servicios basados en Google Maps,
+         se recomienda deshabilitar cualquier modificación en los ajustes de ubicación que utilizan puntos de Wi-Fi y más para ayudar a determinar su ubicación de forma más rápida y precisa.</string>
 
-    <string name="dialog_mock_location_title">Фиктивное местоположение отключено</string>
+    <string name="dialog_mock_location_title">Ubicación simulada deshabilitada</string>
     <string name="dialog_mock_location_message_m_over">Выберите это приложение в настройках фиктивного местоположения.</string>
     <string name="dialog_mock_location_message_under_m">Включите фиктивные местоположения в настройках.</string>
 
