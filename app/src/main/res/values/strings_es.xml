@@ -40,34 +40,34 @@
          se recomienda deshabilitar cualquier modificación en los ajustes de ubicación que utilizan puntos de Wi-Fi y más para ayudar a determinar su ubicación de forma más rápida y precisa.</string>
 
     <string name="dialog_mock_location_title">Ubicación simulada deshabilitada</string>
-    <string name="dialog_mock_location_message_m_over">Выберите это приложение в настройках фиктивного местоположения.</string>
-    <string name="dialog_mock_location_message_under_m">Включите фиктивные местоположения в настройках.</string>
+    <string name="dialog_mock_location_message_m_over">Seleccione esta aplicación en los ajustes de ubicación simulada.</string>
+    <string name="dialog_mock_location_message_under_m">Active las ubicaciones simuladas en los ajustes.</string>
 
-    <string name="dialog_developer_settings_title">Режим разработчика отключен</string>
-    <string name="dialog_developer_settings_message">Включите параметры разработчика, кликнув на номер сборки своего телефона 7 (семь) раз.</string>
+    <string name="dialog_developer_settings_title">Ajustes de desarrollador desactivados</string>
+    <string name="dialog_developer_settings_message">Habilite las opciones de desarrollador haciendo clic en el número de compilación de su teléfono 7 (siete) veces.</string>
 
-    <string name="dialog_developer_settings_nougat_title">Настройки разработчика</string>
-    <string name="dialog_developer_settings_nougat_message">Пожалуйста, убедитесь, что настройки разработчика включены, прежде чем пытаться установить местоположение, чтобы предотвратить проблемы на Nougat.
-        \n\nВы можете сделать это, кликнув на номере сборки вашего телефона 7 (семь) раз.</string>
+    <string name="dialog_developer_settings_nougat_title">Ajustes de desarrollador</string>
+    <string name="dialog_developer_settings_nougat_message">Asegúrese de que los ajustes de desarrollador estén activados antes de intentar establecer la ubicación para evitar problemas en Nougat.
+         \n\n Puede hacerlo haciendo clic en el número de compilación de su teléfono 7 (siete) veces.</string>
 
     <!--about-->
-    <string name="about_overview_logo_desc">Сведения о логотипе приложения</string>
+    <string name="about_overview_logo_desc">Sobre el logo general de la aplicación</string>
 
-    <string name="about_contribute_card_title">Внести свой вклад</string>
-    <string name="about_contribute_title">Сообщить об ошибках</string>
-    <string name="about_contribute_desc">Сообщить об ошибках или запросить новые возможности</string>
+    <string name="about_contribute_card_title">Contribuye</string>
+    <string name="about_contribute_title">Encuentre errores</string>
+    <string name="about_contribute_desc">Encuentre errores o sugiere características</string>
 
-    <string name="about_developer_image_desc">Изображение автора</string>
+    <string name="about_developer_image_desc">Imagen del autor</string>
     <string name="about_developer_title">wesaphzt</string>
-    <string name="about_developer_desc">Разработчик</string>
-    <string name="about_developer_card_title">Разработчик</string>
+    <string name="about_developer_desc">Desarrollador</string>
+    <string name="about_developer_card_title">Desarrollador</string>
 
-    <string name="about_version_title">Версия</string>
-    <string name="about_version_image_desc">Изображение версии</string>
+    <string name="about_version_title">Versión</string>
+    <string name="about_version_image_desc">Imagen de la versión</string>
 
-    <string name="about_license_title">Лицензия</string>
-    <string name="about_license_desc">Лицензия GPL v3.0</string>
-    <string name="about_license_image_desc">Изображение лицензии</string>
+    <string name="about_license_title">Licencia</string>
+    <string name="about_license_desc">Licencia GPL v3.0</string>
+    <string name="about_license_image_desc">Imagen de la licencia</string>
 
     <string name="about_source_title">Исходный код</string>
     <string name="about_source_image_desc">Изображение исходного кода</string>
