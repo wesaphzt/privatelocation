@@ -69,22 +69,22 @@
     <string name="about_license_desc">Licencia GPL v3.0</string>
     <string name="about_license_image_desc">Imagen de la licencia</string>
 
-    <string name="about_source_title">Исходный код</string>
-    <string name="about_source_image_desc">Изображение исходного кода</string>
+    <string name="about_source_title">Código fuente</string>
+    <string name="about_source_image_desc">Imagen del código fuente</string>
 
-    <string name="about_bug_report_image_desc">Изображение отчета об ошибке</string>
+    <string name="about_bug_report_image_desc">Imagen de reporte de errores</string>
 
     <!--donate-->
-    <string name="donate_bitcoin_image_desc">Изображение Bitcoin</string>
-    <string name="donate_litecoin_image_desc">Изображение Litecoin</string>
-    <string name="donate_ethereum_image_desc">Изображение Ethereum</string>
-    <string name="donate_monero_image_desc">Изображение Monero</string>
+    <string name="donate_bitcoin_image_desc">Imagen de Bitcoin</string>
+    <string name="donate_litecoin_image_desc">Imagen de Litecoin</string>
+    <string name="donate_ethereum_image_desc">Imagen de Ethereum</string>
+    <string name="donate_monero_image_desc">Imagen de Monero</string>
 
     <string name="donate_bitcoin_address">1GCkvAg9oG79niQTbh6EH9rPALQDXKyHKK</string>
     <string name="donate_litecoin_address">LV687s3wVdhmLZyJMFxomJHdHFXeFAKT5R</string>
     <string name="donate_ethereum_address">0x785a8804c85b88683a5cce5e53f60878831e5d03</string>
     <string name="donate_monero_address">43Vijzdt3y42mmT954rSYPjXYabDsjYEV2KyhxfC46JibR2ny9VmRS1fjdJTHxxPVPFE8ajgArwjWfyaRgjh9vcNAwmkfJj</string>
 
-    <string name="donate_note_text">Если вы находите эти приложения полезными, подумайте о том, чтобы как-то поддержать меня в моей миссии по созданию простых, полезных, ориентированных на конфиденциальность приложений с открытым исходным кодом.</string>
-    <string name="donate_note_image_desc">Изображение текстового эмодзи</string>
+    <string name="donate_note_text">Si estas aplicaciones resultan útiles, considera ayudarme de alguna manera en mi misión para crear aplicaciones simples, útiles, orientadas a la privacidad y de código abierto.</string>
+    <string name="donate_note_image_desc">Text emoji image</string>
 </resources>
