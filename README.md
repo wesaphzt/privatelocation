@@ -25,6 +25,7 @@ The open-source Leaflet map library along with Wikimedia to provide map tiles ar
 - Set phone location
 - Favorite locations
 - Go to location from coordinates
+- Option to change to random location every x minutes
 - Notification when location is set
 - Find current location
 

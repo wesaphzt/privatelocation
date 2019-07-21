@@ -16,7 +16,6 @@
     <!--pre-oreo-->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-    <!--https://pixabay.com/vectors/the-location-of-the-map-where-way-1724293/-->
     <application
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"

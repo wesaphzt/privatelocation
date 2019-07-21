@@ -1,0 +1,4 @@
+- Option to randomize location every x minutes added
+- RU (0ndrey) & ES (sguinetti) translations added
+- Logo update to prevent whitespace around edges
+- Gradle & library updates
