@@ -74,6 +74,10 @@
 
     <string name="about_bug_report_image_desc">Изображение отчета об ошибке</string>
 
+    <!--message-->
+    <string name="settings_randomize_toast">Если служба в данный момент работает, перезапустите, чтобы применить настройки.
+        \n\nМожет влиять на температуру экрана и локализацию.</string>
+
     <!--donate-->
     <string name="donate_bitcoin_image_desc">Изображение Bitcoin</string>
     <string name="donate_litecoin_image_desc">Изображение Litecoin</string>

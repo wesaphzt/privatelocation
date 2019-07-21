@@ -9,10 +9,13 @@ import android.os.Build;
 
 import com.wesaphzt.privatelocation.service.LocationProvider;
 
+import static com.wesaphzt.privatelocation.service.LocationService.isRunning;
+import static com.wesaphzt.privatelocation.service.LocationService.mCountDown;
+
 public class ActionReceiver extends BroadcastReceiver {
 
     LocationProvider mockNetwork;
-    LocationProvider mockGPS;
+    LocationProvider mockGps;
 
     private static final int NOTIFICATION = 100;
 
@@ -22,7 +25,7 @@ public class ActionReceiver extends BroadcastReceiver {
 
         if(action.equals("service_notification")){
             mockNetwork = new LocationProvider(LocationManager.NETWORK_PROVIDER, context);
-            mockGPS = new LocationProvider(LocationManager.GPS_PROVIDER, context);
+            mockGps = new LocationProvider(LocationManager.GPS_PROVIDER, context);
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 NotificationManager notificationManager =
@@ -37,9 +40,10 @@ public class ActionReceiver extends BroadcastReceiver {
             try {
                 if (mockNetwork != null)
                     mockNetwork.shutdown();
-                if (mockGPS != null)
-                    mockGPS.shutdown();
-
+                if (mockGps != null)
+                    mockGps.shutdown();
+                if (isRunning)
+                    mCountDown.cancel();
             } catch (Exception e) {
                 e.printStackTrace();
             }

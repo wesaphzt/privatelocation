@@ -7,16 +7,20 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.location.LocationManager;
 import android.os.Build;
+import android.os.CountDownTimer;
 import android.os.IBinder;
-import android.util.Log;
 
+import androidx.preference.PreferenceManager;
 import androidx.core.app.NotificationCompat;
 
 import com.wesaphzt.privatelocation.MainActivity;
 import com.wesaphzt.privatelocation.R;
 import com.wesaphzt.privatelocation.receivers.ActionReceiver;
+
+import java.util.Random;
 
 import static androidx.core.app.NotificationCompat.PRIORITY_MIN;
 
@@ -38,11 +42,19 @@ public class LocationService extends Service {
     private static final String CHANNEL_NAME = "Location Notification Service";
 
     Context context;
+    SharedPreferences sharedPreferences;
+
+    //randomize
+    public static CountDownTimer mCountDown;
+    public static boolean isRunning = false;
+    private static int RANDOMIZE_LOCATION_INTERVAL;
+
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
         context = getApplicationContext();
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
         //open main activity when clicked
@@ -97,7 +109,6 @@ public class LocationService extends Service {
                     .build();
 
         } else if (Build.VERSION.SDK_INT == Build.VERSION_CODES.N | Build.VERSION.SDK_INT == Build.VERSION_CODES.N_MR1) {
-            Log.i("mylog", "in notification N");
             NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, CHANNEL_ID);
             notification = notificationBuilder
                     .setSmallIcon(R.drawable.ic_notification_pin_drop_white_24dp)
@@ -138,7 +149,6 @@ public class LocationService extends Service {
     private void pushLocation(Intent intent) {
         try {
             if (intent.hasExtra("lat") && intent.hasExtra("lng") ) {
-                //TODO: set defaultValue to @string/..., and on MainActivity
                 double lat = intent.getDoubleExtra("lat", 45);
                 double lng = intent.getDoubleExtra("lng", 45);
 
@@ -147,6 +157,10 @@ public class LocationService extends Service {
 
                 mockNetwork.pushLocation(lat, lng);
                 mockGps.pushLocation(lat, lng);
+
+                if(sharedPreferences.getBoolean("RANDOMIZE_LOCATION", false)) {
+                    randomize();
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -164,9 +178,58 @@ public class LocationService extends Service {
             notificationManager.cancel(NOTIFICATION_ID);
         }
 
-        if (mockNetwork != null)
-            mockNetwork.shutdown();
-        if (mockGps != null)
-            mockGps.shutdown();
+        try {
+            if (mockNetwork != null)
+                mockNetwork.shutdown();
+            if (mockGps != null)
+                mockGps.shutdown();
+            if (isRunning)
+                mCountDown.cancel();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    //---------------------------------------------------------------------
+    private void randomize() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            try {
+                RANDOMIZE_LOCATION_INTERVAL = Integer.parseInt(prefs.getString("RANDOMIZE_LOCATION_INTERVAL", "60"));
+
+                float randomLat = randomLat();
+                float randomLng = randomLng();
+
+                mockNetwork = new LocationProvider(LocationManager.NETWORK_PROVIDER, context);
+                mockGps = new LocationProvider(LocationManager.GPS_PROVIDER, context);
+
+                mockNetwork.pushLocation(randomLat, randomLng);
+                mockGps.pushLocation(randomLat, randomLng);
+
+                randomizeTimer();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+    }
+
+    private void randomizeTimer() {
+        mCountDown = new CountDownTimer(RANDOMIZE_LOCATION_INTERVAL * 1000 * 60, 1000) {
+            public void onTick(long millisUntilFinished) {
+                isRunning = true;
+            }
+            public void onFinish() {
+                isRunning = false;
+                randomize();
+            }
+        }.start();
+    }
+
+    private float randomLat() {
+        Random r = new Random();
+        return r.nextFloat() * (180) - 90;
+    }
+
+    private float randomLng() {
+        Random r = new Random();
+        return r.nextFloat() * (360) - 180;
     }
 }

@@ -7,4 +7,21 @@
             android:key="START_ON_BOOT"
             android:title="System start" />
     </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Location">
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="RANDOMIZE_LOCATION"
+            android:title="Randomize location"/>
+
+        <ListPreference
+            android:defaultValue="60"
+            android:entries="@array/array_randomize_location_interval"
+            android:entryValues="@array/array_randomize_location_interval_vals"
+            android:key="RANDOMIZE_LOCATION_INTERVAL"
+            android:summary="%s"
+            android:title="Update interval"
+            android:dependency="RANDOMIZE_LOCATION"/>
+    </PreferenceCategory>
 </PreferenceScreen>

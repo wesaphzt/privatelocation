@@ -74,6 +74,10 @@
 
     <string name="about_bug_report_image_desc">Bug report image</string>
 
+    <!--message-->
+    <string name="settings_randomize_toast">If service is currently running, restart to apply setting.
+        \n\nMay interfere with screen temperature and localization.</string>
+
     <!--donate-->
     <string name="donate_bitcoin_image_desc">Bitcoin image</string>
     <string name="donate_litecoin_image_desc">Litecoin image</string>

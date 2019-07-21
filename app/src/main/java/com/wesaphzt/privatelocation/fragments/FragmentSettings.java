@@ -7,7 +7,9 @@ import androidx.annotation.Nullable;
 
 import android.view.Menu;
 import android.view.View;
+import android.widget.Toast;
 
+import androidx.preference.CheckBoxPreference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 
@@ -19,7 +21,6 @@ public class FragmentSettings extends PreferenceFragmentCompat {
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-        //https://github.com/codepath/android_guides/wiki/Settings-with-PreferenceFragment
         addPreferencesFromResource(R.xml.preferences);
 
         setHasOptionsMenu(true);
@@ -27,6 +28,8 @@ public class FragmentSettings extends PreferenceFragmentCompat {
 
         //this static call will reset default values only on the first ever read
         PreferenceManager.setDefaultValues(context, R.xml.preferences, false);
+
+        cbRandomize = findPreference("RANDOMIZE_LOCATION");
     }
 
     @Override
