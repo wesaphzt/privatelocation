@@ -1,0 +1,94 @@
+<resources>
+    <string name="app_name">Private Location</string>
+    <string name="app_desc">Open-Source Location Privacy</string>
+
+    <string name="app_github_dev">https://github.com/wesaphzt</string>
+    <string name="app_github">https://github.com/wesaphzt/PrivateLocation</string>
+
+    <!--actionbar-->
+    <string name="action_favorites">Favoritos</string>
+    <string name="action_go_to">Ir para</string>
+    <string name="action_settings">Configurações</string>
+    <string name="action_donate">Doar</string>
+    <string name="action_about">Sobre</string>
+
+    <!--titles-->
+    <string name="fragment_donate_title">Doar</string>
+    <string name="fragment_donate_clipboard_label">Endereço copiado</string>
+    <string name="fragment_donate_clipboard_message">Endereço copiado para a área de transferência</string>
+    <string name="fragment_about_title">Sobre</string>
+
+    <!--dialog fragments-->
+    <string name="dialog_favorites_title">Localizações Favoritas</string>
+    <string name="dialog_favorites_empty_view">Nada aqui…</string>
+    <string name="dialog_favorites_add_hint">Nome</string>
+    <string name="dialog_favorites_add_lat_long">Latitude: %1$f \nLongitude: %2$f</string>
+    <string name="dialog_favorites_list_name_hint">Nome</string>
+    <string name="dialog_favorites_list_edit_desc">Editar</string>
+    <string name="dialog_favorites_list_del_desc">Apagar</string>
+
+    <string name="dialog_go_to_title">Coordenadas de localização</string>
+    <string name="dialog_go_to_lat_hint">Latitude</string>
+    <string name="dialog_go_to_long_hint">Longitude</string>
+    <string name="dialog_go_to_invalid_range">Intervalo inválido</string>
+    <string name="dialog_go_to_invalid_number">Não é um número válido</string>
+    <string name="dialog_go_to_invalid_empty">Não pode ser vazio.</string>
+
+    <!--main activity dialogs-->
+    <string name="dialog_first_run_title">Configurações de localização</string>
+    <string name="dialog_first_run_message">Se voce tiver problemas com a sua localização real sendo exposta, em particular com os serviços e aplicativos baseados no Google Maps, é recomendável desabilitar qualquer configuração na opção de Localização que utilize pontos de Wi-Fi e outras opções que ajudam a determinar sua localização com mais rapidez e precisa. 
+	</string>
+
+    <string name="dialog_mock_location_title">Localização falsa desabilitada</string>
+    <string name="dialog_mock_location_message_m_over">Selecione esse aplicativo nas configurações de localização falsa.</string>
+    <string name="dialog_mock_location_message_under_m">Habilitar a localização falsa nas configurações.</string>
+
+    <string name="dialog_developer_settings_title">Modo desenvolvedor desabilitado</string>
+    <string name="dialog_developer_settings_message">Habilitar opções de desenvolvedor ao clicar na opção de versão do seu aparelho 7 (sete) vezes.</string>
+
+    <string name="dialog_developer_settings_nougat_title">Configurações de desenvolvedor</string>
+    <string name="dialog_developer_settings_nougat_message">Certifique-se de que as configurações do desenvolvedor estejam ativadas antes de tentar definir o local para evitar problemas no Nougat.
+        \n\nVocê pode fazer isso clicando na opção de versão do seu aparelho 7 (sete) vezes .</string>
+
+    <!--about-->
+    <string name="about_overview_logo_desc">Sobre o logotipo do aplicativo de visão geral</string>
+
+    <string name="about_contribute_card_title">Contribuir</string>
+    <string name="about_contribute_title">Reportar erros</string>
+    <string name="about_contribute_desc">Reportar erros ou requisitar novas funções</string>
+
+    <string name="about_developer_image_desc">Imagem do autor</string>
+    <string name="about_developer_title">wesaphzt</string>
+    <string name="about_developer_desc">Desenvolvedor</string>
+    <string name="about_developer_card_title">Desenvolvedor</string>
+
+    <string name="about_version_title">Versão</string>
+    <string name="about_version_image_desc">Imagem da versão</string>
+
+    <string name="about_license_title">Licença</string>
+    <string name="about_license_desc">Licensa GPL v3.0</string>
+    <string name="about_license_image_desc">Imagem da licensa</string>
+
+    <string name="about_source_title">Código fornte</string>
+    <string name="about_source_image_desc">Imagem do código fonte</string>
+
+    <string name="about_bug_report_image_desc">Imagem do reportar erro</string>
+
+    <!--message-->
+    <string name="settings_randomize_toast">Se Se o serviço estiver sendo executado, reinicie para aplicar a configuração.
+        \n\nPode interferir na temperatura e localização da tela.</string>
+
+    <!--donate-->
+    <string name="donate_bitcoin_image_desc">Logo Bitcoin</string>
+    <string name="donate_litecoin_image_desc">Logo Litecoin</string>
+    <string name="donate_ethereum_image_desc">Logo Ethereum</string>
+    <string name="donate_monero_image_desc">Logo Monero</string>
+
+    <string name="donate_bitcoin_address">1GCkvAg9oG79niQTbh6EH9rPALQDXKyHKK</string>
+    <string name="donate_litecoin_address">LV687s3wVdhmLZyJMFxomJHdHFXeFAKT5R</string>
+    <string name="donate_ethereum_address">0x785a8804c85b88683a5cce5e53f60878831e5d03</string>
+    <string name="donate_monero_address">43Vijzdt3y42mmT954rSYPjXYabDsjYEV2KyhxfC46JibR2ny9VmRS1fjdJTHxxPVPFE8ajgArwjWfyaRgjh9vcNAwmkfJj</string>
+
+    <string name="donate_note_text">Se você acha esses aplicativos úteis, considere apoiar-me de alguma forma em minha missão de criar aplicativos simples, úteis, orientados à privacidade e de código aberto.</string>
+    <string name="donate_note_image_desc">Imagem do texto do emoji</string>
+</resources>
