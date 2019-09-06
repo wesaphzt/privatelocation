@@ -15,7 +15,6 @@ import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.wesaphzt.privatelocation.fragments.DialogFragmentAddFavorite;
 import com.wesaphzt.privatelocation.fragments.DialogFragmentFavorite;
 import com.wesaphzt.privatelocation.fragments.DialogFragmentGoTo;

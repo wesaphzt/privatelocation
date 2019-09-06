@@ -11,7 +11,7 @@ This app will fake/spoof both your GPS and network location on your phone.
 Many apps on your phone won't work without location permissions, and can make repeated and unnecessary location requests in the background throughout the day.
 Setting your location somewhere else will help to mitigate that and protect your privacy.
 
-The open-source Leaflet map library along with Wikimedia to provide map tiles are used in place of Google Maps.
+The open-source Leaflet map library along with Wikimedia to provide map tiles (OpenStreetMap) are used in place of Google Maps.
 
 <p align="center">
 <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/01-main.png?raw=true" width="200" height="400"/> 
@@ -46,7 +46,7 @@ To contribute, or to report issues please use the [Issue Tracker](https://github
 ## Privacy
 Free from ads and tracking.
 
-Map tiles are provided by Wikimedia [(Maps Terms of Service)](https://foundation.wikimedia.org/wiki/Maps_Terms_of_Use/).
+Map tiles are provided by Wikimedia [(Maps Terms of Service)](https://foundation.wikimedia.org/wiki/Maps_Terms_of_Use/), which uses [(OpenStreetMap)](https://www.openstreetmap.org/copyright/) data.
 
 ## License
 [GPL v3.0](LICENSE)

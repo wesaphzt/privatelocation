@@ -1,0 +1,3 @@
+Minor release
+- OpenStreetMap data attribuition added
+- Library updates
