@@ -24,6 +24,7 @@ import com.wesaphzt.privatelocation.fragments.FragmentSettings;
 import com.wesaphzt.privatelocation.interfaces.ILatLong;
 import com.wesaphzt.privatelocation.interfaces.JSInterface;
 import com.wesaphzt.privatelocation.service.LocationService;
+import com.wesaphzt.privatelocation.widget.LocationWidgetProvider;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
@@ -34,6 +35,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.view.View;
 import android.webkit.GeolocationPermissions;
@@ -45,6 +47,8 @@ import android.view.Menu;
 
 import android.webkit.WebViewClient;
 import android.widget.Toast;
+
+import static com.wesaphzt.privatelocation.service.LocationService.mCountDown;
 
 public class MainActivity extends AppCompatActivity
         implements ILatLong {
@@ -71,7 +75,6 @@ public class MainActivity extends AppCompatActivity
     //shared prefs
     SharedPreferences sharedPreferences = null;
     SharedPreferences.Editor sharedPreferencesEditor;
-    public static final String PREFS_NAME = "PREFS";
 
     public static final String USER_LAT_NAME = "USER_LAT";
     public static final String USER_LNG_NAME = "USER_LNG";
@@ -99,7 +102,7 @@ public class MainActivity extends AppCompatActivity
         mActivity = this;
 
         //shared prefs
-        sharedPreferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
 
         //webview
         webView = findViewById(R.id.webView);
@@ -151,7 +154,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    private class customWebView extends WebViewClient {
+    public class customWebView extends WebViewClient {
         @Override
         public void onPageFinished(WebView view, String url) {
             getSharedPreferencesLatLng();
@@ -241,6 +244,10 @@ public class MainActivity extends AppCompatActivity
         } else if (savedVersionCode == DOESNT_EXIST) {
             firstRun = 1;
 
+            //first run
+            Intent myIntent = new Intent(this, IntroActivity.class);
+            this.startActivity(myIntent);
+
             //dialog for nougat build
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && Build.VERSION.SDK_INT <= Build.VERSION_CODES.N_MR1) {
                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
@@ -272,7 +279,7 @@ public class MainActivity extends AppCompatActivity
         try {
             double mLat = Double.parseDouble(sharedPreferences.getString(USER_LAT_NAME, "null"));
             double mLng = Double.parseDouble(sharedPreferences.getString(USER_LNG_NAME, "null"));
-            int mZoom = (int) Integer.parseInt(String.valueOf(sharedPreferences.getInt(USER_ZOOM_NAME, DEFAULT_ZOOM)));
+            int mZoom = Integer.parseInt(String.valueOf(sharedPreferences.getInt(USER_ZOOM_NAME, DEFAULT_ZOOM)));
 
             //set map view, marker, zoom and open popup
             sendJS("map.setView([" + mLat + ", " + mLng + "], " + mZoom + ");");
@@ -361,21 +368,19 @@ public class MainActivity extends AppCompatActivity
             //pass mActivity so we can callback in FavoriteAdapter
             DialogFragmentFavorite dialogFragment = new DialogFragmentFavorite(context, mActivity);
             dialogFragment.show(fm, "FragmentFavorite");
-
         } else if (id == R.id.action_go_to) {
             FragmentManager fm = getSupportFragmentManager();
             DialogFragmentGoTo dialogFragment = new DialogFragmentGoTo();
             dialogFragment.show(fm, "FragmentGoTo");
-
         } else if (id == R.id.action_settings) {
             fragment = new FragmentSettings();
-
         } else if (id == R.id.action_donate) {
             fragment = new FragmentDonate();
-
+        } else if (id == R.id.action_show_intro) {
+            Intent myIntent = new Intent(this, IntroActivity.class);
+            this.startActivity(myIntent);
         } else if (id == R.id.action_about) {
             fragment = new FragmentAbout();
-
         }
 
         //add fragment
@@ -417,6 +422,23 @@ public class MainActivity extends AppCompatActivity
                         .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
+                                try {
+                                    startService();
+                                    LocationWidgetProvider locationWidgetProvider = new LocationWidgetProvider();
+                                    locationWidgetProvider.setWidgetStart(context);
+
+                                    //cancel any pause timer that might be running
+                                    try {
+                                        mCountDown.cancel();
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                    }
+
+                                } catch (Exception e) {
+                                    startService();
+                                    LocationWidgetProvider locationWidgetProvider = new LocationWidgetProvider();
+                                    locationWidgetProvider.setWidgetStart(context);
+                                }
                                 startService();
                             }
                         });
@@ -425,6 +447,23 @@ public class MainActivity extends AppCompatActivity
                 firstRun = 0;
 
             } else {
+                try {
+                    startService();
+                    LocationWidgetProvider locationWidgetProvider = new LocationWidgetProvider();
+                    locationWidgetProvider.setWidgetStart(context);
+
+                    //cancel any pause timer that might be running
+                    try {
+                        mCountDown.cancel();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                } catch (Exception e) {
+                    startService();
+                    LocationWidgetProvider locationWidgetProvider = new LocationWidgetProvider();
+                    locationWidgetProvider.setWidgetStart(context);
+                }
                 startService();
             }
         }
