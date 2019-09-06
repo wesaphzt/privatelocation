@@ -36,6 +36,9 @@
             </intent-filter>
         </activity>
 
+        <activity android:name="com.wesaphzt.privatelocation.IntroActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+
         <receiver android:name="com.wesaphzt.privatelocation.receivers.ActionReceiver"/>
 
         <receiver android:name=".receivers.BootReceiver">
@@ -49,6 +52,13 @@
             android:label="Service"
             android:permission="android.permission.BIND_JOB_SERVICE"/>
 
+        <receiver android:name=".widget.LocationWidgetProvider" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                android:resource="@xml/app_widget_info" />
+        </receiver>
     </application>
 
 </manifest>
