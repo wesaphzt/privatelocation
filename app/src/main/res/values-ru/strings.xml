@@ -10,6 +10,7 @@
     <string name="action_go_to">Перейти к</string>
     <string name="action_settings">Настройки</string>
     <string name="action_donate">Поддержать</string>
+    <string name="action_show_intro">Показать вступление</string>
     <string name="action_about">О приложении</string>
 
     <!--titles-->
@@ -77,6 +78,23 @@
     <!--message-->
     <string name="settings_randomize_toast">Если служба в данный момент работает, перезапустите, чтобы применить настройки.
         \n\nМожет влиять на температуру экрана и локализацию.</string>
+
+    <!--widget-->
+    <string name="widget_start_text">Начните</string>
+    <string name="widget_stop_text">Стоп</string>
+
+    <string name="widget_prefs_service_id">SERVICE_STATUS</string>
+    <string name="widget_location_image_desc">Изображение местоположения виджета</string>
+
+    <!--intro-->
+    <string name="slider_page_one_title">@string/app_name</string>
+    <string name="slider_page_one_desc">Идеальный компаньон, чтобы помочь защитить конфиденциальность и безопасность вашего телефона путем подмены вашего местоположения в любой точке мира.</string>
+    <string name="slider_page_two_title">Ограничьте ваши данные</string>
+    <string name="slider_page_two_desc">Многие приложения могут выполнять повторные и ненужные запросы местоположения в фоновом режиме, часто отправляя эти данные обратно в облако.
+         \n\nРасположение данных является личным и потенциально очень чувствительным, это приложение может помочь защитить вашу конфиденциальность и данные.</string>
+    <string name="slider_page_three_title">Проверьте свои настройки</string>
+    <string name="slider_page_three_desc">Для плавного плавания убедитесь, что настройки вашего местоположения не используют WiFi, сеть или другие методы, чтобы определить ваше местоположение, которое может утечь ваше реальное местоположение,
+         и что оптимизация батареи отключена для этого приложения.</string>
 
     <!--donate-->
     <string name="donate_bitcoin_image_desc">Изображение Bitcoin</string>

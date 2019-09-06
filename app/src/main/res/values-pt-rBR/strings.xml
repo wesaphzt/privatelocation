@@ -10,6 +10,7 @@
     <string name="action_go_to">Ir para</string>
     <string name="action_settings">Configurações</string>
     <string name="action_donate">Doar</string>
+    <string name="action_show_intro">Mostrar introdução</string>
     <string name="action_about">Sobre</string>
 
     <!--titles-->
@@ -77,6 +78,23 @@
     <!--message-->
     <string name="settings_randomize_toast">Se Se o serviço estiver sendo executado, reinicie para aplicar a configuração.
         \n\nPode interferir na temperatura e localização da tela.</string>
+
+    <!--widget-->
+    <string name="widget_start_text">Começar</string>
+    <string name="widget_stop_text">Pare</string>
+
+    <string name="widget_prefs_service_id">SERVICE_STATUS</string>
+    <string name="widget_location_image_desc">Imagem de localização do widget</string>
+
+    <!--intro-->
+    <string name="slider_page_one_title">@string/app_name</string>
+    <string name="slider_page_one_desc">O companheiro perfeito para ajudar a proteger a privacidade e a segurança da localização do telefone, falsificando sua localização para qualquer lugar do mundo.</string>
+    <string name="slider_page_two_title">Limite seus dados</string>
+    <string name="slider_page_two_desc">Muitos aplicativos podem fazer solicitações de localização repetidas e desnecessárias em segundo plano, geralmente enviando esses dados de volta para a nuvem.
+         \n\nOs dados de localização são pessoais e potencialmente muito sensíveis, este aplicativo pode ajudar a proteger sua privacidade e dados.</string>
+    <string name="slider_page_three_title">Verifique suas configurações</string>
+    <string name="slider_page_three_desc">Para uma navegação tranqüila, verifique se as configurações de localização não estão usando Wi-Fi, rede ou outros métodos para determinar sua localização que pode vazar sua localização real,
+         e a otimização da bateria está desativada para este aplicativo.</string>
 
     <!--donate-->
     <string name="donate_bitcoin_image_desc">Logo Bitcoin</string>

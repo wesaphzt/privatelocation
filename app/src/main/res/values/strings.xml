@@ -10,6 +10,7 @@
     <string name="action_go_to">Go To</string>
     <string name="action_settings">Settings</string>
     <string name="action_donate">Donate</string>
+    <string name="action_show_intro">Show Intro</string>
     <string name="action_about">About</string>
 
     <!--titles-->
@@ -77,6 +78,23 @@
     <!--message-->
     <string name="settings_randomize_toast">If service is currently running, restart to apply setting.
         \n\nMay interfere with screen temperature and localization.</string>
+
+    <!--widget-->
+    <string name="widget_start_text">Start</string>
+    <string name="widget_stop_text">Stop</string>
+
+    <string name="widget_prefs_service_id">SERVICE_STATUS</string>
+    <string name="widget_location_image_desc">Widget location image</string>
+
+    <!--intro-->
+    <string name="slider_page_one_title">@string/app_name</string>
+    <string name="slider_page_one_desc">The perfect companion to help protect your phone location privacy and security by spoofing your location to anywhere in the world.</string>
+    <string name="slider_page_two_title">Limit Your Data</string>
+    <string name="slider_page_two_desc">Many apps can make repeated and unnecessary location requests in the background, often sending this data back to the cloud.
+        \n\nLocation data is personal and potentially very sensitive, this app can help protect your privacy and data.</string>
+    <string name="slider_page_three_title">Check Your Settings</string>
+    <string name="slider_page_three_desc">For smooth sailing, make sure your location settings aren\'t using WiFi, network or other methods to determine your location that can leak your real location,
+        and that battery optimization is turned off for this app.</string>
 
     <!--donate-->
     <string name="donate_bitcoin_image_desc">Bitcoin image</string>

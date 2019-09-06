@@ -33,16 +33,18 @@ public class LocationService extends Service {
     public static PendingIntent pendingIntent;
     public static PendingIntent pendingCloseIntent;
 
-    private static final int NOTIFICATION_ID = 100;
+    public static final int NOTIFICATION_ID = 100;
 
     Notification notification;
     NotificationManager notificationManager;
 
-    private static final String CHANNEL_ID = "location_notification_channel_id";
-    private static final String CHANNEL_NAME = "Location Notification Service";
+    public static final String CHANNEL_ID = "location_notification_channel_id";
+    public static final String CHANNEL_NAME = "Location Notification Service";
 
     Context context;
     SharedPreferences sharedPreferences;
+
+    public static boolean disabled = true;
 
     //randomize
     public static CountDownTimer mCountDown;
@@ -74,9 +76,11 @@ public class LocationService extends Service {
             //create foreground service
             startForeground(NOTIFICATION_ID, notification);
             pushLocation(intent);
+            disabled = false;
         } else {
             notificationManager.notify(NOTIFICATION_ID, notification);
             pushLocation(intent);
+            disabled = false;
         }
 
         return LocationService.START_STICKY;

@@ -8,6 +8,7 @@ import android.location.LocationManager;
 import android.os.Build;
 
 import com.wesaphzt.privatelocation.service.LocationProvider;
+import com.wesaphzt.privatelocation.widget.LocationWidgetProvider;
 
 import static com.wesaphzt.privatelocation.service.LocationService.isRunning;
 import static com.wesaphzt.privatelocation.service.LocationService.mCountDown;
@@ -32,9 +33,15 @@ public class ActionReceiver extends BroadcastReceiver {
                         (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
                 String id = "location_notification_channel_id";
                 notificationManager.deleteNotificationChannel(id);
+
+                LocationWidgetProvider locationWidgetProvider = new LocationWidgetProvider();
+                locationWidgetProvider.setWidgetStop(context);
             } else {
                 NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
                 notificationManager.cancel(NOTIFICATION);
+
+                LocationWidgetProvider locationWidgetProvider = new LocationWidgetProvider();
+                locationWidgetProvider.setWidgetStop(context);
             }
 
             try {

@@ -10,6 +10,7 @@
     <string name="action_go_to">Ir a</string>
     <string name="action_settings">Ajustes</string>
     <string name="action_donate">Donar</string>
+    <string name="action_show_intro">Mostrar introducción</string>
     <string name="action_about">Acerca de</string>
 
     <!--titles-->
@@ -77,6 +78,23 @@
     <!--message-->
     <string name="settings_randomize_toast">Si el servicio se está ejecutando actualmente, reinicie para aplicar la configuración.
         \n\nPuede interferir con la temperatura de la pantalla y la localización.</string>
+
+    <!--widget-->
+    <string name="widget_start_text">Comienzo</string>
+    <string name="widget_stop_text">Detener</string>
+
+    <string name="widget_prefs_service_id">SERVICE_STATUS</string>
+    <string name="widget_location_image_desc">Imagen de ubicación del widget</string>
+
+    <!--intro-->
+    <string name="slider_page_one_title">@string/app_name</string>
+    <string name="slider_page_one_desc">El compañero perfecto para ayudar a proteger la privacidad y seguridad de la ubicación de su teléfono al suplantar su ubicación a cualquier parte del mundo.</string>
+    <string name="slider_page_two_title">Limite sus datos</string>
+    <string name="slider_page_two_desc">Muchas aplicaciones pueden realizar solicitudes de ubicación repetidas e innecesarias en segundo plano, a menudo enviando estos datos a la nube.
+         \n\nLos datos de ubicación son personales y potencialmente muy sensibles, esta aplicación puede ayudar a proteger su privacidad y datos.</string>
+    <string name="slider_page_three_title">Verifica tu configuración</string>
+    <string name="slider_page_three_desc">Para navegar sin problemas, asegúrese de que la configuración de su ubicación no utilice WiFi, red u otros métodos para determinar su ubicación que pueda filtrar su ubicación real,
+         y que la optimización de la batería está desactivada para esta aplicación.</string>
 
     <!--donate-->
     <string name="donate_bitcoin_image_desc">Imagen de Bitcoin</string>

@@ -30,6 +30,10 @@
             android:title="@string/action_donate"
             app:showAsAction="never"/>
         <item
+            android:id="@+id/action_show_intro"
+            android:title="@string/action_show_intro"
+            app:showAsAction="never" />
+        <item
             android:id="@+id/action_about"
             android:title="@string/action_about"
             app:showAsAction="never"/>
