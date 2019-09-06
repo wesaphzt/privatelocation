@@ -1,3 +1,5 @@
-Minor release
+- App widget implemented
+- Intro activity added
 - OpenStreetMap data attribution added
-- Library updates
+- Minor code improvements & clean up
+- Gradle & library updates
