@@ -1,6 +1,5 @@
 package com.wesaphzt.privatelocation.widget;
 
-import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
@@ -8,31 +7,22 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.location.LocationManager;
 import android.os.Build;
 import android.preference.PreferenceManager;
 import android.widget.RemoteViews;
 
 import com.wesaphzt.privatelocation.R;
-import com.wesaphzt.privatelocation.service.LocationProvider;
 import com.wesaphzt.privatelocation.service.LocationService;
 
 import static com.wesaphzt.privatelocation.MainActivity.DEFAULT_LAT;
 import static com.wesaphzt.privatelocation.MainActivity.DEFAULT_LNG;
 import static com.wesaphzt.privatelocation.MainActivity.USER_LAT_NAME;
 import static com.wesaphzt.privatelocation.MainActivity.USER_LNG_NAME;
-import static com.wesaphzt.privatelocation.service.LocationService.CHANNEL_ID;
-import static com.wesaphzt.privatelocation.service.LocationService.disabled;
-import static com.wesaphzt.privatelocation.service.LocationService.isRunning;
-import static com.wesaphzt.privatelocation.service.LocationService.mCountDown;
 
 public class LocationWidgetProvider extends AppWidgetProvider {
 
     private static final String ACTION_WIDGET_RECEIVER = "ActionReceiverWidget";
     public boolean SERVICE_STATUS;
-
-    LocationProvider mockNetwork;
-    LocationProvider mockGps;
 
     public void onUpdate(Context context, AppWidgetManager appWidgetManager,
                          int[] appWidgetIds) {
@@ -77,36 +67,14 @@ public class LocationWidgetProvider extends AppWidgetProvider {
                 editor.putBoolean(context.getString(R.string.widget_prefs_service_id), false);
                 editor.apply();
 
-                mockNetwork = new LocationProvider(LocationManager.NETWORK_PROVIDER, context);
-                mockGps = new LocationProvider(LocationManager.GPS_PROVIDER, context);
-
-                NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                Intent stopIntent  = new Intent(context, LocationService.class);
+                stopIntent.setAction(LocationService.ACTION_STOP_FOREGROUND_SERVICE);
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    notificationManager.deleteNotificationChannel(CHANNEL_ID);
-                    //if countdown timer is running (pause), cancel
-                    if(isRunning) {
-                        mCountDown.cancel(); isRunning = false;
-                        disabled = true;
-                        cancelLocation();
-                        setWidgetStop(context);
-                    } else {
-                        disabled = true;
-                        cancelLocation();
-                        setWidgetStop(context);
-                    }
+                    context.startForegroundService(stopIntent);
+
                 } else {
-                    notificationManager.cancel(LocationService.NOTIFICATION_ID);
-                    if(isRunning) {
-                        mCountDown.cancel(); isRunning = false;
-                        disabled = true;
-                        cancelLocation();
-                        setWidgetStop(context);
-                    } else {
-                        disabled = true;
-                        cancelLocation();
-                        setWidgetStop(context);
-                    }
+                    context.startService(stopIntent);
                 }
 
                 //if service is not running
@@ -114,8 +82,8 @@ public class LocationWidgetProvider extends AppWidgetProvider {
                 editor.putBoolean(context.getString(R.string.widget_prefs_service_id), true);
                 editor.commit();
 
-                double mLat = 0;
-                double mLng = 0;
+                double mLat;
+                double mLng;
 
                 //grab last lat/lng or use defaults if app hasn't run yet
                 try {
@@ -128,18 +96,15 @@ public class LocationWidgetProvider extends AppWidgetProvider {
                     mLng = DEFAULT_LNG;
                 }
 
-                Intent i = new Intent(context, LocationService.class);
-                i.putExtra("lat", mLat);
-                i.putExtra("lng", mLng);
+                Intent startIntent  = new Intent(context, LocationService.class);
+                startIntent.setAction(LocationService.ACTION_START_FOREGROUND_SERVICE);
+                startIntent.putExtra("lat", mLat);
+                startIntent.putExtra("lng", mLng);
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    disabled = false;
-                    context.startForegroundService(i);
-                    setWidgetStart(context);
+                    context.startForegroundService(startIntent);
                 } else {
-                    disabled = false;
-                    context.startService(i);
-                    setWidgetStart(context);
+                    context.startService(startIntent);
                 }
             }
         }
@@ -188,14 +153,5 @@ public class LocationWidgetProvider extends AppWidgetProvider {
         remoteViews.setInt(R.id.llWidget, "setBackgroundResource", R.color.colorWidgetStop);
 
         appWidgetManager.updateAppWidget(thisWidget, remoteViews);
-    }
-
-    public void cancelLocation() {
-        try {
-            mockNetwork.shutdown();
-            mockGps.shutdown();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 }

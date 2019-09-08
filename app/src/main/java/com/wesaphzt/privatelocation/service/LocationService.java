@@ -12,6 +12,7 @@ import android.location.LocationManager;
 import android.os.Build;
 import android.os.CountDownTimer;
 import android.os.IBinder;
+import android.widget.Toast;
 
 import androidx.preference.PreferenceManager;
 import androidx.core.app.NotificationCompat;
@@ -19,9 +20,11 @@ import androidx.core.app.NotificationCompat;
 import com.wesaphzt.privatelocation.MainActivity;
 import com.wesaphzt.privatelocation.R;
 import com.wesaphzt.privatelocation.receivers.ActionReceiver;
+import com.wesaphzt.privatelocation.widget.LocationWidgetProvider;
 
 import java.util.Random;
 
+import static androidx.core.app.NotificationCompat.PRIORITY_LOW;
 import static androidx.core.app.NotificationCompat.PRIORITY_MIN;
 
 public class LocationService extends Service {
@@ -51,14 +54,65 @@ public class LocationService extends Service {
     public static boolean isRunning = false;
     private static int RANDOMIZE_LOCATION_INTERVAL;
 
+    public static final String ACTION_STOP_FOREGROUND_SERVICE = "ACTION_STOP_FOREGROUND_SERVICE";
+    public static final String ACTION_START_FOREGROUND_SERVICE = "ACTION_START_FOREGROUND_SERVICE";
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-
         context = getApplicationContext();
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
+        if (intent != null) {
+            String action = intent.getAction();
+
+            LocationWidgetProvider locationWidgetProvider = new LocationWidgetProvider();
+
+            switch (action) {
+                case ACTION_START_FOREGROUND_SERVICE:
+                    setNotification();
+
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        //create foreground service
+                        startForeground(NOTIFICATION_ID, notification);
+                        pushLocation(intent);
+                        disabled = false;
+                        locationWidgetProvider.setWidgetStart(context);
+                    } else {
+                        notificationManager.notify(NOTIFICATION_ID, notification);
+                        pushLocation(intent);
+                        disabled = false;
+                        locationWidgetProvider.setWidgetStart(context);
+                    }
+
+                    break;
+
+                case ACTION_STOP_FOREGROUND_SERVICE:
+                    shutdown();
+                    stopService(intent);
+                    disabled = true;
+                    locationWidgetProvider.setWidgetStop(context);
+
+                    break;
+            }
+        } else {
+            Toast.makeText(context, "Something went wrong...", Toast.LENGTH_LONG).show();
+        }
+
+        return LocationService.START_STICKY;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    public IBinder onBind(Intent intent) {
+        return null;
+    }
+
+    private void setNotification() {
         //open main activity when clicked
         pendingIntent = PendingIntent.getActivity(context, 0,
                 new Intent(context, MainActivity.class)
@@ -70,35 +124,6 @@ public class LocationService extends Service {
         intentAction.putExtra("location_service","service_notification");
         pendingCloseIntent = PendingIntent.getBroadcast(context,0, intentAction, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        setNotification();
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            //create foreground service
-            startForeground(NOTIFICATION_ID, notification);
-            pushLocation(intent);
-            disabled = false;
-        } else {
-            notificationManager.notify(NOTIFICATION_ID, notification);
-            pushLocation(intent);
-            disabled = false;
-        }
-
-        return LocationService.START_STICKY;
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-
-        shutdown();
-    }
-
-    @Override
-    public IBinder onBind(Intent intent) {
-        return null;
-    }
-
-    private void setNotification() {
         if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.M) {
             NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this);
             notification = notificationBuilder
@@ -110,6 +135,7 @@ public class LocationService extends Service {
                     .setTicker(getString(R.string.app_name) + " is running")
                     .addAction(android.R.drawable.ic_menu_close_clear_cancel, "STOP", pendingCloseIntent)
                     .setOngoing(true)
+                    .setPriority(PRIORITY_LOW)
                     .build();
 
         } else if (Build.VERSION.SDK_INT == Build.VERSION_CODES.N | Build.VERSION.SDK_INT == Build.VERSION_CODES.N_MR1) {
@@ -124,6 +150,7 @@ public class LocationService extends Service {
                     .setTicker(getString(R.string.app_name) + " is running")
                     .addAction(android.R.drawable.ic_menu_close_clear_cancel, "STOP", pendingCloseIntent)
                     .setOngoing(true)
+                    .setPriority(PRIORITY_LOW)
                     .build();
         }
 
@@ -183,6 +210,9 @@ public class LocationService extends Service {
         }
 
         try {
+            disabled = true;
+            isRunning = false;
+
             if (mockNetwork != null)
                 mockNetwork.shutdown();
             if (mockGps != null)
@@ -197,22 +227,22 @@ public class LocationService extends Service {
     //---------------------------------------------------------------------
     private void randomize() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            try {
-                RANDOMIZE_LOCATION_INTERVAL = Integer.parseInt(prefs.getString("RANDOMIZE_LOCATION_INTERVAL", "60"));
+        try {
+            RANDOMIZE_LOCATION_INTERVAL = Integer.parseInt(prefs.getString("RANDOMIZE_LOCATION_INTERVAL", "60"));
 
-                float randomLat = randomLat();
-                float randomLng = randomLng();
+            float randomLat = randomLat();
+            float randomLng = randomLng();
 
-                mockNetwork = new LocationProvider(LocationManager.NETWORK_PROVIDER, context);
-                mockGps = new LocationProvider(LocationManager.GPS_PROVIDER, context);
+            mockNetwork = new LocationProvider(LocationManager.NETWORK_PROVIDER, context);
+            mockGps = new LocationProvider(LocationManager.GPS_PROVIDER, context);
 
-                mockNetwork.pushLocation(randomLat, randomLng);
-                mockGps.pushLocation(randomLat, randomLng);
+            mockNetwork.pushLocation(randomLat, randomLng);
+            mockGps.pushLocation(randomLat, randomLng);
 
-                randomizeTimer();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            randomizeTimer();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void randomizeTimer() {

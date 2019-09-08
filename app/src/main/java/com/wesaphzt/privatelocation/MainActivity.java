@@ -24,7 +24,6 @@ import com.wesaphzt.privatelocation.fragments.FragmentSettings;
 import com.wesaphzt.privatelocation.interfaces.ILatLong;
 import com.wesaphzt.privatelocation.interfaces.JSInterface;
 import com.wesaphzt.privatelocation.service.LocationService;
-import com.wesaphzt.privatelocation.widget.LocationWidgetProvider;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
@@ -47,8 +46,6 @@ import android.view.Menu;
 
 import android.webkit.WebViewClient;
 import android.widget.Toast;
-
-import static com.wesaphzt.privatelocation.service.LocationService.mCountDown;
 
 public class MainActivity extends AppCompatActivity
         implements ILatLong {
@@ -422,23 +419,6 @@ public class MainActivity extends AppCompatActivity
                         .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                try {
-                                    startService();
-                                    LocationWidgetProvider locationWidgetProvider = new LocationWidgetProvider();
-                                    locationWidgetProvider.setWidgetStart(context);
-
-                                    //cancel any pause timer that might be running
-                                    try {
-                                        mCountDown.cancel();
-                                    } catch (Exception e) {
-                                        e.printStackTrace();
-                                    }
-
-                                } catch (Exception e) {
-                                    startService();
-                                    LocationWidgetProvider locationWidgetProvider = new LocationWidgetProvider();
-                                    locationWidgetProvider.setWidgetStart(context);
-                                }
                                 startService();
                             }
                         });
@@ -447,23 +427,6 @@ public class MainActivity extends AppCompatActivity
                 firstRun = 0;
 
             } else {
-                try {
-                    startService();
-                    LocationWidgetProvider locationWidgetProvider = new LocationWidgetProvider();
-                    locationWidgetProvider.setWidgetStart(context);
-
-                    //cancel any pause timer that might be running
-                    try {
-                        mCountDown.cancel();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-
-                } catch (Exception e) {
-                    startService();
-                    LocationWidgetProvider locationWidgetProvider = new LocationWidgetProvider();
-                    locationWidgetProvider.setWidgetStart(context);
-                }
                 startService();
             }
         }
@@ -471,20 +434,21 @@ public class MainActivity extends AppCompatActivity
 
     public void startService() {
         try {
-            Intent intent = new Intent(context, LocationService.class);
-            //add data to the intent
-            intent.putExtra("lat", lat);
-            intent.putExtra("lng", lng);
+            //start service intent
+            Intent startIntent  = new Intent(context, LocationService.class);
+            startIntent.setAction(LocationService.ACTION_START_FOREGROUND_SERVICE);
+            //add data
+            startIntent.putExtra("lat", lat);
+            startIntent.putExtra("lng", lng);
 
             //check android api
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                startForegroundService(intent);
+                startForegroundService(startIntent);
             } else {
-                context.startService(intent);
+                context.startService(startIntent);
             }
 
             minimizeApp();
-
         } catch (SecurityException e) {
             e.printStackTrace();
         }
@@ -556,7 +520,7 @@ public class MainActivity extends AppCompatActivity
                 AppOpsManager opsManager = (AppOpsManager) context.getSystemService(Context.APP_OPS_SERVICE);
                 isMockLocation = (opsManager.checkOp(AppOpsManager.OPSTR_MOCK_LOCATION, android.os.Process.myUid(), BuildConfig.APPLICATION_ID)== AppOpsManager.MODE_ALLOWED);
             } else {
-                // in marshmallow this will always return true
+                //in marshmallow this will always return true
                 isMockLocation = !android.provider.Settings.Secure.getString(context.getContentResolver(), "mock_location").equals("0");
             }
         } catch (Exception e) {

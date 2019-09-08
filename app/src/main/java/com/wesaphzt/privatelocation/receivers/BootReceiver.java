@@ -8,7 +8,6 @@ import android.os.Build;
 import android.preference.PreferenceManager;
 
 import com.wesaphzt.privatelocation.service.LocationService;
-import com.wesaphzt.privatelocation.widget.LocationWidgetProvider;
 
 import static com.wesaphzt.privatelocation.MainActivity.USER_LAT_NAME;
 import static com.wesaphzt.privatelocation.MainActivity.USER_LNG_NAME;
@@ -23,7 +22,8 @@ public class BootReceiver extends BroadcastReceiver {
             SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
 
             if(sharedPreferences.getBoolean("START_ON_BOOT", false)) {
-                Intent i = new Intent(context, LocationService.class);
+                Intent startIntent  = new Intent(context, LocationService.class);
+                startIntent.setAction(LocationService.ACTION_START_FOREGROUND_SERVICE);
 
                 //init
                 double lat = 0;
@@ -37,20 +37,14 @@ public class BootReceiver extends BroadcastReceiver {
                 }
 
                 //add location data to the intent
-                i.putExtra("lat", lat);
-                i.putExtra("lng", lng);
+                startIntent.putExtra("lat", lat);
+                startIntent.putExtra("lng", lng);
 
                 //check android api
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    context.startForegroundService(i);
-
-                    LocationWidgetProvider locationWidgetProvider = new LocationWidgetProvider();
-                    locationWidgetProvider.setWidgetStart(context);
+                    context.startForegroundService(startIntent);
                 } else {
-                    context.startService(i);
-
-                    LocationWidgetProvider locationWidgetProvider = new LocationWidgetProvider();
-                    locationWidgetProvider.setWidgetStart(context);
+                    context.startService(startIntent);
                 }
             }
         }
