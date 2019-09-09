@@ -1,5 +1,0 @@
-- App widget implemented
-- Intro activity added
-- OpenStreetMap data attribution added
-- Minor code improvements & clean up
-- Gradle & library updates

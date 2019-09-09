@@ -1,4 +1,8 @@
 - Option to randomize location every x minutes added
+- App widget implemented
+- Intro activity added
+- OpenStreetMap data attribution added
+- Minor code improvements & clean up
 - RU (@0ndrey), ES (@sguinetti) & pt-rBR (@iramaro) translations added
 - Logo update to prevent whitespace around edges
 - Gradle & library updates
