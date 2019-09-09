@@ -1,3 +1,5 @@
+- Stop service correctly to fix memory leak & reduce code
+- Notification priority changed to low for Nougat and lower
 - Option to randomize location every x minutes added
 - App widget implemented
 - Intro activity added
