@@ -1,10 +1,10 @@
 - Stop service correctly to fix memory leak & reduce code
-- Notification priority changed to low for Nougat and lower
 - Option to randomize location every x minutes added
 - App widget implemented
+- RU (@0ndrey), ES (@sguinetti) & pt-rBR (@iramaro) translations added
 - Intro activity added
 - OpenStreetMap data attribution added
+- Notification priority changed to low for Nougat and lower
 - Minor code improvements & clean up
-- RU (@0ndrey), ES (@sguinetti) & pt-rBR (@iramaro) translations added
 - Logo update to prevent whitespace around edges
 - Gradle & library updates
