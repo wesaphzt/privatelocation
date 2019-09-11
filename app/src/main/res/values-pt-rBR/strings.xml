@@ -52,7 +52,7 @@
         \n\nVocê pode fazer isso clicando na opção de versão do seu aparelho 7 (sete) vezes .</string>
 
     <!--about-->
-    <string name="about_overview_logo_desc">Sobre o logotipo do aplicativo de visão geral</string>
+    <string name="about_overview_logo_desc">Sobre o logótipo do aplicativo de visão geral</string>
 
     <string name="about_contribute_card_title">Contribuir</string>
     <string name="about_contribute_title">Reportar erros</string>
@@ -67,8 +67,8 @@
     <string name="about_version_image_desc">Imagem da versão</string>
 
     <string name="about_license_title">Licença</string>
-    <string name="about_license_desc">Licensa GPL v3.0</string>
-    <string name="about_license_image_desc">Imagem da licensa</string>
+    <string name="about_license_desc">Licença GPL v3.0</string>
+    <string name="about_license_image_desc">Imagem da licença</string>
 
     <string name="about_source_title">Código fornte</string>
     <string name="about_source_image_desc">Imagem do código fonte</string>
@@ -76,7 +76,7 @@
     <string name="about_bug_report_image_desc">Imagem do reportar erro</string>
 
     <!--message-->
-    <string name="settings_randomize_toast">Se Se o serviço estiver sendo executado, reinicie para aplicar a configuração.
+    <string name="settings_randomize_toast">Se o serviço estiver sendo executado, reinicie para aplicar a configuração.
         \n\nPode interferir na temperatura e localização da tela.</string>
 
     <!--widget-->
@@ -93,7 +93,7 @@
     <string name="slider_page_two_desc">Muitos aplicativos podem fazer solicitações de localização repetidas e desnecessárias em segundo plano, geralmente enviando esses dados de volta para a nuvem.
          \n\nOs dados de localização são pessoais e potencialmente muito sensíveis, este aplicativo pode ajudar a proteger sua privacidade e dados.</string>
     <string name="slider_page_three_title">Verifique suas configurações</string>
-    <string name="slider_page_three_desc">Para uma navegação tranqüila, verifique se as configurações de localização não estão usando Wi-Fi, rede ou outros métodos para determinar sua localização que pode vazar sua localização real,
+    <string name="slider_page_three_desc">Para uma navegação tranquila, verifique se as configurações de localização não estão usando Wi-Fi, rede ou outros métodos para determinar sua localização que pode vazar sua localização real,
          e a otimização da bateria está desativada para este aplicativo.</string>
 
     <!--donate-->
