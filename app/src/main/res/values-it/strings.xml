@@ -1,0 +1,112 @@
+<resources>
+    <string name="app_name">Private Location</string>
+    <string name="app_desc">Open-Source Location Privacy</string>
+
+    <string name="app_github_dev">https://github.com/wesaphzt</string>
+    <string name="app_github">https://github.com/wesaphzt/PrivateLocation</string>
+
+    <!--actionbar-->
+    <string name="action_favorites">Preferiti</string>
+    <string name="action_go_to">Vai a</string>
+    <string name="action_settings">Impostazioni</string>
+    <string name="action_donate">Dona</string>
+    <string name="action_show_intro">Mostra Introduzione</string>
+    <string name="action_about">Informazioni</string>
+
+    <!--titles-->
+    <string name="fragment_donate_title">Dona</string>
+    <string name="fragment_donate_clipboard_label">Indirizzo copiato</string>
+    <string name="fragment_donate_clipboard_message">Indirizzo copiato negli appunti</string>
+    <string name="fragment_about_title">Informazioni</string>
+
+    <!--dialog fragments-->
+    <string name="dialog_favorites_title">Luoghi Preferiti</string>
+    <string name="dialog_favorites_empty_view">Nulla…</string>
+    <string name="dialog_favorites_add_hint">Nome</string>
+    <string name="dialog_favorites_add_lat_long">Latitudine: %1$f \nLongitudine: %2$f</string>
+    <string name="dialog_favorites_list_name_hint">Nome</string>
+    <string name="dialog_favorites_list_edit_desc">Modifica</string>
+    <string name="dialog_favorites_list_del_desc">Elimina</string>
+
+    <string name="dialog_go_to_title">Coordinate del luogo</string>
+    <string name="dialog_go_to_lat_hint">Latitudine</string>
+    <string name="dialog_go_to_long_hint">Longitudine</string>
+    <string name="dialog_go_to_invalid_range">Range non valido</string>
+    <string name="dialog_go_to_invalid_number">Non è un numero valido</string>
+    <string name="dialog_go_to_invalid_empty">Non può essere vuoto</string>
+
+    <!--main activity dialogs-->
+    <string name="dialog_first_run_title">Impostazioni di Geolocalizzazione</string>
+    <string name="dialog_first_run_message">Se si verificano problemi di esposizione della propria posizione reale, in particolare con le applicazioni e i servizi basati su Google Maps,
+        si consiglia di disabilitare nelle impostazioni di geolocalizzazione tutte le funzioni che utilizzano bluetooth e reti Wi-Fi per aiutare a determinare la posizione in modo più rapido.</string>
+
+    <string name="dialog_mock_location_title">Posizione Fittizia Disabilitata</string>
+    <string name="dialog_mock_location_message_m_over">Selezionare questa applicazione nell'impostazione dell'app di posizione fittizia.</string>
+    <string name="dialog_mock_location_message_under_m">Attivare le posizioni simulate nelle impostazioni.</string>
+
+    <string name="dialog_developer_settings_title">Modalità Sviluppatore Disattivata</string>
+    <string name="dialog_developer_settings_message">Abilita le opzioni sviluppatore cliccando 7 (sette) volte sul numero build del tuo telefono.</string>
+
+    <string name="dialog_developer_settings_nougat_title">Opzioni Sviluppatore</string>
+    <string name="dialog_developer_settings_nougat_message">Assicurati che le impostazioni sviluppatore siano abilitate prima di cercare di impostare la posizione per evitare problemi su Nougat.
+        \n\nLo puoi verificare cliccando 7 (sette) volte sul numero build del tuo telefono.</string>
+
+    <!--about-->
+    <string name="about_overview_logo_desc">Informazioni sul logo dell'applicazione</string>
+
+    <string name="about_contribute_card_title">Contribuisci</string>
+    <string name="about_contribute_title">Segnala un Bug</string>
+    <string name="about_contribute_desc">Segnala bugs o richiedi nuove funzioni</string>
+
+    <string name="about_developer_image_desc">Immagine dell'autore</string>
+    <string name="about_developer_title">wesaphzt</string>
+    <string name="about_developer_desc">Developer</string>
+    <string name="about_developer_card_title">Developer</string>
+
+    <string name="about_version_title">Versione</string>
+    <string name="about_version_image_desc">Version image</string>
+
+    <string name="about_license_title">Licenza</string>
+    <string name="about_license_desc">GPL v3.0 License</string>
+    <string name="about_license_image_desc">License image</string>
+
+    <string name="about_source_title">Codice sorgente</string>
+    <string name="about_source_image_desc">Source code image</string>
+
+    <string name="about_bug_report_image_desc">Bug report image</string>
+
+    <!--message-->
+    <string name="settings_randomize_toast">Se il servizio è in esecuzione, riavviare per applicare l'impostazione.
+        \n\nPuò interferire con la temperatura dello schermo e la localizzazione.</string>
+
+    <!--widget-->
+    <string name="widget_start_text">Avvia</string>
+    <string name="widget_stop_text">Stop</string>
+
+    <string name="widget_prefs_service_id">SERVICE_STATUS</string>
+    <string name="widget_location_image_desc">Widget location image</string>
+
+    <!--intro-->
+    <string name="slider_page_one_title">@string/app_name</string>
+    <string name="slider_page_one_desc">Il compagno perfetto per proteggere la privacy della posizione del tuo telefono spostando la tua posizione in qualsiasi parte del mondo.</string>
+    <string name="slider_page_two_title">Limita il consumo di dati</string>
+    <string name="slider_page_two_desc">Molte applicazioni possono fare richieste di posizione ripetute e inutili in background, spesso inviando questi dati al cloud.
+        \n\nI dati di localizzazione sono personali e potenzialmente molto sensibili, questa applicazione può aiutare a proteggere la tua privacy e i tuoi dati.</string>
+    <string name="slider_page_three_title">Controlla le tue Impostazioni</string>
+    <string name="slider_page_three_desc">Per un funzionamento ottimale, assicurati che le impostazioni di Geolocalizzazione non utilizzino WiFi, la rete cellulare o altri metodi per determinare la tua posizione che possano far trapelare la tua posizione reale,
+        e che l'ottimizzazione della batteria sia disattivata per questa applicazione.</string>
+
+    <!--donate-->
+    <string name="donate_bitcoin_image_desc">Bitcoin image</string>
+    <string name="donate_litecoin_image_desc">Litecoin image</string>
+    <string name="donate_ethereum_image_desc">Ethereum image</string>
+    <string name="donate_monero_image_desc">Monero image</string>
+
+    <string name="donate_bitcoin_address">1GCkvAg9oG79niQTbh6EH9rPALQDXKyHKK</string>
+    <string name="donate_litecoin_address">LV687s3wVdhmLZyJMFxomJHdHFXeFAKT5R</string>
+    <string name="donate_ethereum_address">0x785a8804c85b88683a5cce5e53f60878831e5d03</string>
+    <string name="donate_monero_address">43Vijzdt3y42mmT954rSYPjXYabDsjYEV2KyhxfC46JibR2ny9VmRS1fjdJTHxxPVPFE8ajgArwjWfyaRgjh9vcNAwmkfJj</string>
+
+    <string name="donate_note_text">Se trovi utili queste applicazioni, considera la possibilità di supportarmi in qualche modo nella mia missione di creare applicazioni semplici, utili, orientate alla privacy e open-source.</string>
+    <string name="donate_note_image_desc">Text emoji image</string>
+</resources>
