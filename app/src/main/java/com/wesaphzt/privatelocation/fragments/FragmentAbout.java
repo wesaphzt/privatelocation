@@ -21,9 +21,8 @@ import com.wesaphzt.privatelocation.R;
 public class FragmentAbout extends Fragment {
 
     private static String GITHUB_URI;
-    private static final String LICENSE_URI = GITHUB_URI + "/blob/master/LICENSE.txt";
-    private static final String BUG_REPORT_URI = GITHUB_URI + "/issues";
-
+    private static String LICENSE_URI;
+    private static String BUG_REPORT_URI;
     private static String AUTHOR_GITHUB;
 
     @Nullable
@@ -32,6 +31,8 @@ public class FragmentAbout extends Fragment {
         View v = inflater.inflate(R.layout.fragment_about, container, false);
 
         GITHUB_URI = getString(R.string.app_github);
+        LICENSE_URI = GITHUB_URI + "/blob/master/LICENSE";
+        BUG_REPORT_URI = GITHUB_URI + "/issues";
         AUTHOR_GITHUB = getString(R.string.app_github_dev);
 
         String versionName = "";
