@@ -41,7 +41,7 @@
         si consiglia di disabilitare nelle impostazioni di geolocalizzazione tutte le funzioni che utilizzano bluetooth e reti Wi-Fi per aiutare a determinare la posizione in modo più rapido.</string>
 
     <string name="dialog_mock_location_title">Posizione Fittizia Disabilitata</string>
-    <string name="dialog_mock_location_message_m_over">Selezionare questa applicazione nell'impostazione dell'app di posizione fittizia.</string>
+    <string name="dialog_mock_location_message_m_over">Selezionare questa applicazione nell\'impostazione dell\'app di posizione fittizia.</string>
     <string name="dialog_mock_location_message_under_m">Attivare le posizioni simulate nelle impostazioni.</string>
 
     <string name="dialog_developer_settings_title">Modalità Sviluppatore Disattivata</string>
@@ -52,13 +52,13 @@
         \n\nLo puoi verificare cliccando 7 (sette) volte sul numero build del tuo telefono.</string>
 
     <!--about-->
-    <string name="about_overview_logo_desc">Informazioni sul logo dell'applicazione</string>
+    <string name="about_overview_logo_desc">Informazioni sul logo dell\'applicazione</string>
 
     <string name="about_contribute_card_title">Contribuisci</string>
     <string name="about_contribute_title">Segnala un Bug</string>
     <string name="about_contribute_desc">Segnala bugs o richiedi nuove funzioni</string>
 
-    <string name="about_developer_image_desc">Immagine dell'autore</string>
+    <string name="about_developer_image_desc">Immagine dell\'autore</string>
     <string name="about_developer_title">wesaphzt</string>
     <string name="about_developer_desc">Developer</string>
     <string name="about_developer_card_title">Developer</string>
@@ -76,7 +76,7 @@
     <string name="about_bug_report_image_desc">Bug report image</string>
 
     <!--message-->
-    <string name="settings_randomize_toast">Se il servizio è in esecuzione, riavviare per applicare l'impostazione.
+    <string name="settings_randomize_toast">Se il servizio è in esecuzione, riavviare per applicare l\'impostazione.
         \n\nPuò interferire con la temperatura dello schermo e la localizzazione.</string>
 
     <!--widget-->
@@ -94,7 +94,7 @@
         \n\nI dati di localizzazione sono personali e potenzialmente molto sensibili, questa applicazione può aiutare a proteggere la tua privacy e i tuoi dati.</string>
     <string name="slider_page_three_title">Controlla le tue Impostazioni</string>
     <string name="slider_page_three_desc">Per un funzionamento ottimale, assicurati che le impostazioni di Geolocalizzazione non utilizzino WiFi, la rete cellulare o altri metodi per determinare la tua posizione che possano far trapelare la tua posizione reale,
-        e che l'ottimizzazione della batteria sia disattivata per questa applicazione.</string>
+        e che l\'ottimizzazione della batteria sia disattivata per questa applicazione.</string>
 
     <!--donate-->
     <string name="donate_bitcoin_image_desc">Bitcoin image</string>
