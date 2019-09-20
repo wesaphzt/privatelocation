@@ -6,7 +6,7 @@ android {
         applicationId "com.wesaphzt.privatelocation"
         minSdkVersion 17
         targetSdkVersion 29
-        versionCode 3
+        versionCode 4
         versionName "1.2"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         dataBinding.enabled = true
