@@ -96,10 +96,10 @@ public class LocationService extends Service {
                     break;
             }
         } else {
-            Toast.makeText(context, "Something went wrong...", Toast.LENGTH_LONG).show();
+            return LocationService.START_REDELIVER_INTENT;
         }
 
-        return LocationService.START_STICKY;
+        return LocationService.START_REDELIVER_INTENT;
     }
 
     @Override
