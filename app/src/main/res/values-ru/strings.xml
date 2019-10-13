@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Private Location</string>
-    <string name="app_desc">Open-Source Location Privacy</string>
+    <string name="app_desc">Приватность местоположения с открытым исходным кодом</string>
 
     <string name="app_github_dev">https://github.com/wesaphzt</string>
     <string name="app_github">https://github.com/wesaphzt/PrivateLocation</string>
@@ -10,7 +10,7 @@
     <string name="action_go_to">Перейти к</string>
     <string name="action_settings">Настройки</string>
     <string name="action_donate">Поддержать</string>
-    <string name="action_show_intro">Показать вступление</string>
+    <string name="action_show_intro">Показать введение</string>
     <string name="action_about">О приложении</string>
 
     <!--titles-->
@@ -23,7 +23,7 @@
     <string name="dialog_favorites_title">Избранные местоположения</string>
     <string name="dialog_favorites_empty_view">Ничего нет…</string>
     <string name="dialog_favorites_add_hint">Название</string>
-    <string name="dialog_favorites_add_lat_long">Широта: %1$f \nLongitude: %2$f</string>
+    <string name="dialog_favorites_add_lat_long">Широта: %f \nLongitude: %f</string>
     <string name="dialog_favorites_list_name_hint">Название</string>
     <string name="dialog_favorites_list_edit_desc">Изменить</string>
     <string name="dialog_favorites_list_del_desc">Удалить</string>
@@ -76,25 +76,25 @@
     <string name="about_bug_report_image_desc">Изображение отчета об ошибке</string>
 
     <!--message-->
-    <string name="settings_randomize_toast">Если служба в данный момент работает, перезапустите, чтобы применить настройки.
+    <string name="settings_randomize_toast">Если служба в данный момент запущена, перезапустите для применения настроек.
         \n\nМожет влиять на температуру экрана и локализацию.</string>
 
     <!--widget-->
-    <string name="widget_start_text">Начните</string>
+    <string name="widget_start_text">Старт</string>
     <string name="widget_stop_text">Стоп</string>
 
     <string name="widget_prefs_service_id">SERVICE_STATUS</string>
-    <string name="widget_location_image_desc">Изображение местоположения виджета</string>
+    <string name="widget_location_image_desc">Изображение виджета местоположения</string>
 
     <!--intro-->
     <string name="slider_page_one_title">@string/app_name</string>
-    <string name="slider_page_one_desc">Идеальный компаньон, чтобы помочь защитить конфиденциальность и безопасность вашего телефона путем подмены вашего местоположения в любой точке мира.</string>
-    <string name="slider_page_two_title">Ограничьте ваши данные</string>
-    <string name="slider_page_two_desc">Многие приложения могут выполнять повторные и ненужные запросы местоположения в фоновом режиме, часто отправляя эти данные обратно в облако.
-         \n\nРасположение данных является личным и потенциально очень чувствительным, это приложение может помочь защитить вашу конфиденциальность и данные.</string>
+    <string name="slider_page_one_desc">Идеальный помощник, помогающий защитить конфиденциальность и безопасность местоположения вашего телефона путем подмены местоположения в любом уголке мира.</string>
+    <string name="slider_page_two_title">Ограничьте доступ к вашим данным</string>
+    <string name="slider_page_two_desc">Многие приложения могут посылать многократные и неоправданные запросы местоположения в фоновом режиме, зачастую отправляя эти данные на свой сервер.
+         \n\nДанные о местоположении являются конфиденциальными и могут быть весьма деликатными. Данное приложение может помочь защитить вашу конфиденциальность и данные.</string>
     <string name="slider_page_three_title">Проверьте свои настройки</string>
-    <string name="slider_page_three_desc">Для плавного плавания убедитесь, что настройки вашего местоположения не используют WiFi, сеть или другие методы, чтобы определить ваше местоположение, которое может утечь ваше реальное местоположение,
-         и что оптимизация батареи отключена для этого приложения.</string>
+    <string name="slider_page_three_desc">Для бесперебойной работы убедитесь, что в настройках вашего местоположения не используется Wi-Fi, сотовая сеть или другие методы определения местоположения, которые могут привести к утечке информации о вашем реальном местоположении,
+         а также в том, что для этого приложения отключена оптимизация заряда батареи.</string>
 
     <!--donate-->
     <string name="donate_bitcoin_image_desc">Изображение Bitcoin</string>
@@ -107,6 +107,6 @@
     <string name="donate_ethereum_address">0x785a8804c85b88683a5cce5e53f60878831e5d03</string>
     <string name="donate_monero_address">43Vijzdt3y42mmT954rSYPjXYabDsjYEV2KyhxfC46JibR2ny9VmRS1fjdJTHxxPVPFE8ajgArwjWfyaRgjh9vcNAwmkfJj</string>
 
-    <string name="donate_note_text">Если вы находите эти приложения полезными, подумайте о том, чтобы как-то поддержать меня в моей миссии по созданию простых, полезных, ориентированных на конфиденциальность приложений с открытым исходным кодом.</string>
+    <string name="donate_note_text">Если вы находите эти приложения полезными, подумайте о том, чтобы поддержать меня в моей миссии по созданию простых, полезных, ориентированных на конфиденциальность приложений с открытым исходным кодом.</string>
     <string name="donate_note_image_desc">Изображение текстового эмодзи</string>
 </resources>
