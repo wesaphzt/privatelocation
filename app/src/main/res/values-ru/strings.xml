@@ -23,7 +23,7 @@
     <string name="dialog_favorites_title">Избранные местоположения</string>
     <string name="dialog_favorites_empty_view">Ничего нет…</string>
     <string name="dialog_favorites_add_hint">Название</string>
-    <string name="dialog_favorites_add_lat_long">Широта: %f \nLongitude: %f</string>
+    <string name="dialog_favorites_add_lat_long">Широта: %1$f \nLongitude: %2$f</string>
     <string name="dialog_favorites_list_name_hint">Название</string>
     <string name="dialog_favorites_list_edit_desc">Изменить</string>
     <string name="dialog_favorites_list_del_desc">Удалить</string>
