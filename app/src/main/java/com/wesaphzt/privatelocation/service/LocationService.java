@@ -12,6 +12,7 @@ import android.location.LocationManager;
 import android.os.Build;
 import android.os.CountDownTimer;
 import android.os.IBinder;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.preference.PreferenceManager;
@@ -31,7 +32,8 @@ public class LocationService extends Service {
 
     LocationProvider mockNetwork;
     LocationProvider mockGps;
-
+    double DEF_LOCATION_LNG = MainActivity.DEFAULT_LNG;
+    double DEF_LOCATION_LAT = MainActivity.DEFAULT_LAT;
     //notifications
     public static PendingIntent pendingIntent;
     public static PendingIntent pendingCloseIntent;
@@ -52,7 +54,9 @@ public class LocationService extends Service {
     //randomize
     public static CountDownTimer mCountDown;
     public static boolean isRunning = false;
-    private static int RANDOMIZE_LOCATION_INTERVAL;
+    private static int RANDOMIZE_LOCATION_INTERVAL;//间隔时间
+    private static int RANDOMIZE_LOCATION_ROUTE_RADIUS;//偏差距离
+    private static int RANDOMIZE_LOCATION_RANGE_RADIUS;//范围半径
 
     public static final String ACTION_STOP_FOREGROUND_SERVICE = "ACTION_STOP_FOREGROUND_SERVICE";
     public static final String ACTION_START_FOREGROUND_SERVICE = "ACTION_START_FOREGROUND_SERVICE";
@@ -121,8 +125,8 @@ public class LocationService extends Service {
 
         //action when notification button clicked
         Intent intentAction = new Intent(context, ActionReceiver.class);
-        intentAction.putExtra("location_service","service_notification");
-        pendingCloseIntent = PendingIntent.getBroadcast(context,0, intentAction, PendingIntent.FLAG_UPDATE_CURRENT);
+        intentAction.putExtra("location_service", "service_notification");
+        pendingCloseIntent = PendingIntent.getBroadcast(context, 0, intentAction, PendingIntent.FLAG_UPDATE_CURRENT);
 
         if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.M) {
             NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this);
@@ -177,11 +181,14 @@ public class LocationService extends Service {
         }
     }
 
+    double lat = DEF_LOCATION_LAT;
+    double lng = DEF_LOCATION_LNG;
+
     private void pushLocation(Intent intent) {
         try {
-            if (intent.hasExtra("lat") && intent.hasExtra("lng") ) {
-                double lat = intent.getDoubleExtra("lat", 45);
-                double lng = intent.getDoubleExtra("lng", 45);
+            if (intent.hasExtra("lat") && intent.hasExtra("lng")) {
+                lat = intent.getDoubleExtra("lat", 37.0951691945 );
+                lng = intent.getDoubleExtra("lng",  79.9454498291);
 
                 mockNetwork = new LocationProvider(LocationManager.NETWORK_PROVIDER, context);
                 mockGps = new LocationProvider(LocationManager.GPS_PROVIDER, context);
@@ -189,7 +196,7 @@ public class LocationService extends Service {
                 mockNetwork.pushLocation(lat, lng);
                 mockGps.pushLocation(lat, lng);
 
-                if(sharedPreferences.getBoolean("RANDOMIZE_LOCATION", false)) {
+                if (sharedPreferences.getBoolean("RANDOMIZE_LOCATION", false)) {
                     randomize();
                 }
             }
@@ -205,7 +212,7 @@ public class LocationService extends Service {
             String id = "location_notification_channel_id";
             notificationManager.deleteNotificationChannel(id);
         } else {
-            NotificationManager notificationManager = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
+            NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
             notificationManager.cancel(NOTIFICATION_ID);
         }
 
@@ -232,6 +239,13 @@ public class LocationService extends Service {
 
             float randomLat = randomLat();
             float randomLng = randomLng();
+            Log.d("Location", "Lat: " + randomLat + "  Lng:  " + randomLng);
+            if (sharedPreferences.getBoolean("RANDOMIZE_RANGE", false)) {//随机路线
+                float[] value = randomRange(prefs);
+                randomLat = value[0];
+                randomLng = value[1];
+                Log.e("Location randomRout", "Lat: " + randomLat + "  Lng:  " + randomLng);
+            }
 
             mockNetwork = new LocationProvider(LocationManager.NETWORK_PROVIDER, context);
             mockGps = new LocationProvider(LocationManager.GPS_PROVIDER, context);
@@ -246,10 +260,11 @@ public class LocationService extends Service {
     }
 
     private void randomizeTimer() {
-        mCountDown = new CountDownTimer(RANDOMIZE_LOCATION_INTERVAL * 1000 * 60, 1000) {
+        mCountDown = new CountDownTimer(RANDOMIZE_LOCATION_INTERVAL * 1000, 1000) {
             public void onTick(long millisUntilFinished) {
                 isRunning = true;
             }
+
             public void onFinish() {
                 isRunning = false;
                 randomize();
@@ -259,11 +274,32 @@ public class LocationService extends Service {
 
     private float randomLat() {
         Random r = new Random();
-        return r.nextFloat() * (180) - 90;
+        //return r.nextFloat() * (180) - 90;
+        return (float) (lat+r.nextFloat());
     }
 
     private float randomLng() {
         Random r = new Random();
-        return r.nextFloat() * (360) - 180;
+        //return r.nextFloat() * (360) - 180;
+        return (float) (lng+r.nextFloat());
+    }
+
+    private float[] randomRange(SharedPreferences prefs) {
+        //int[] angles = new int[]{30, 60, 45};
+        Random random = new Random();
+        float radius =Float.valueOf(prefs.getString("RANDOMIZE_RANGE_RADIUS","0.1f"));
+        float distance = random.nextFloat() * radius;
+        //double randomValue = sin(angles[random.nextInt(angles.length)]) * distance;
+        float nextLng = (float) (lng + distance);
+        float nextLat = (float) (lat + distance);
+        return new float[]{nextLat,nextLng};
+    }
+
+    double sin(int num) {
+        return Math.sin(num * Math.PI / 180);
+    }
+
+    double cos(int num) {
+        return Math.cos(num * Math.PI / 180);
     }
 }

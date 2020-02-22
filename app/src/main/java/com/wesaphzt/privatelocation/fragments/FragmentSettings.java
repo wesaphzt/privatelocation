@@ -3,6 +3,7 @@ package com.wesaphzt.privatelocation.fragments;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+
 import androidx.annotation.Nullable;
 
 import android.view.Menu;
@@ -74,7 +75,7 @@ public class FragmentSettings extends PreferenceFragmentCompat {
         sharedPreferenceChangeListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
             @Override
             public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-                if(key.equals("RANDOMIZE_LOCATION") && cbRandomize.isChecked()) {
+                if (key.equals("RANDOMIZE_LOCATION") && cbRandomize.isChecked()) {
                     Toast.makeText(context, getString(R.string.settings_randomize_toast), Toast.LENGTH_LONG).show();
                 }
             }

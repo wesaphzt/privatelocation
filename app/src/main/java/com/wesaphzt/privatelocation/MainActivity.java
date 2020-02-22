@@ -77,8 +77,8 @@ public class MainActivity extends AppCompatActivity
     public static final String USER_LNG_NAME = "USER_LNG";
     public static final String USER_ZOOM_NAME = "USER_ZOOM";
 
-    public static final Double DEFAULT_LAT = 40.748578;
-    public static final Double DEFAULT_LNG = -73.985659;
+    public static final Double DEFAULT_LAT = 37.0951691945;
+    public static final Double DEFAULT_LNG = 79.9454498291;
     public static final int DEFAULT_ZOOM = 11;
 
     //first run
