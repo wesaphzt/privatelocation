@@ -6,6 +6,11 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.SystemClock;
+import android.util.Log;
+
+import java.util.List;
+
+import static java.security.Security.getProvider;
 
 public class LocationProvider {
 
@@ -20,6 +25,19 @@ public class LocationProvider {
                 Context.LOCATION_SERVICE);
         try
         {
+
+            try {
+                // addTestProvider fails with an IllegalArgumentException if the existing provider with that name is a test provider
+                // within an app it is not possible to find out if a provider is a test provider
+                // so we remove any existing provider first and then add it again
+                locationManager.removeTestProvider(providerName);
+            } catch(IllegalArgumentException e) {
+                // removeTestProvider is broken too. It will create an IllegalArgumentException if there is no existing provider with that name
+                // or the existing provider is not a test provider
+                // so we just ignore that exception
+                // see frameworks/base/services/core/java/com/android/server/LocationManagerService.java in the AOSP source for the problematic functions
+            }
+
             locationManager.addTestProvider(providerName, false, false, false, false, false,
                     true, true, Criteria.POWER_LOW, Criteria.ACCURACY_FINE);
             locationManager.setTestProviderEnabled(providerName, true);

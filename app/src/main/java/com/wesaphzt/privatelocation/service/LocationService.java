@@ -183,6 +183,8 @@ public class LocationService extends Service {
                 double lat = intent.getDoubleExtra("lat", 45);
                 double lng = intent.getDoubleExtra("lng", 45);
 
+                //Log.d("LocationService"," trying to create location provider: " + Locatio)
+                // mockNetwork = new LocationProvider(LocationManager.NETWORK_PROVIDER, context);
                 mockNetwork = new LocationProvider(LocationManager.NETWORK_PROVIDER, context);
                 mockGps = new LocationProvider(LocationManager.GPS_PROVIDER, context);
 
