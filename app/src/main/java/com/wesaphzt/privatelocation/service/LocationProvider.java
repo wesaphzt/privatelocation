@@ -6,11 +6,6 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.SystemClock;
-import android.util.Log;
-
-import java.util.List;
-
-import static java.security.Security.getProvider;
 
 public class LocationProvider {
 
