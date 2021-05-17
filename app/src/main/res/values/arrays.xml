@@ -2,6 +2,7 @@
 <resources>
     <!--randomize location interval-->
     <string-array name="array_randomize_location_interval">
+        <item>3 second</item>
         <item>5 second</item>
         <item>10 second</item>
         <item>15 second</item>
@@ -16,6 +17,7 @@
     </string-array>
 
     <string-array name="array_randomize_location_interval_vals">
+        <item>3</item>
         <item>5</item>
         <item>10</item>
         <item>15</item>

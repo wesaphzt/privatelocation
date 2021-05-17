@@ -27,7 +27,7 @@
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="RANDOMIZE_RANGE"
-            android:title="范围随机" />
+            android:title="Update by range" />
         <ListPreference
             android:defaultValue="0.1f"
             android:dependency="RANDOMIZE_RANGE"
@@ -35,6 +35,14 @@
             android:entryValues="@array/array_radius_vals"
             android:key="RANDOMIZE_RANGE_RADIUS"
             android:summary="%s"
-            android:title="Update interval" />
+            android:title="range" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Input Location">
+    <!--随机位置-->
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="LOCATION_INPUT"
+        android:title="使用导入的位置" />
     </PreferenceCategory>
 </PreferenceScreen>

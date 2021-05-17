@@ -15,7 +15,7 @@
         android:src="@drawable/ic_widget_location_on_white_24dp"
         android:contentDescription="@string/widget_location_image_desc" />
 
-    <TextView
+    <TextViewwidget_start_text
         android:id="@+id/tvWidgetToggle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
