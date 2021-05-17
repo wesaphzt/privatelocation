@@ -11,21 +11,20 @@ import android.content.SharedPreferences;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.IBinder;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.preference.PreferenceManager;
 import androidx.core.app.NotificationCompat;
 
-import com.wesaphzt.privatelocation.FakeData;
+import com.wesaphzt.privatelocation.LocationListener;
 import com.wesaphzt.privatelocation.MainActivity;
+import com.wesaphzt.privatelocation.MockLocation;
 import com.wesaphzt.privatelocation.R;
 import com.wesaphzt.privatelocation.receivers.ActionReceiver;
 import com.wesaphzt.privatelocation.widget.LocationWidgetProvider;
-
-import java.util.Random;
 
 import static androidx.core.app.NotificationCompat.PRIORITY_LOW;
 import static androidx.core.app.NotificationCompat.PRIORITY_MIN;
@@ -199,10 +198,7 @@ public class LocationService extends Service {
                 mockGps.pushLocation(lat, lng);
 
                 if (sharedPreferences.getBoolean("RANDOMIZE_LOCATION", false)) {
-                    randomize();
-                }
-                if (sharedPreferences.getBoolean("LOCATION_INPUT", false)) {
-                    outPutLocation();
+                    randomize(lat,lng);
                 }
             }
         } catch (Exception e) {
@@ -237,54 +233,39 @@ public class LocationService extends Service {
             e.printStackTrace();
         }
     }
-    private void outPutLocation() {
-        new Thread(() -> {
-                //和田模拟路线
-                for (int i = 1; i <= FakeData.YLKSH_LIN1.length; i++) {
-                    if (i % 2 == 0)
-                        continue;
-                    double mLat = FakeData.YLKSH_LIN1[i - 1];
-                    double mLng = FakeData.YLKSH_LIN1[i];
-                    try {
-                        Thread.sleep(5000);//模拟1秒
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+
+    //---------------------------------------------------------------------
+    private void randomize(double lat, double lng) {
+        new  Thread(new Runnable() {
+            @Override
+            public void run() {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                try {
+                    RANDOMIZE_LOCATION_INTERVAL = Integer.parseInt(prefs.getString("RANDOMIZE_LOCATION_INTERVAL", "60"));
+                    MockLocation mockLocation =new MockLocation();
+                    mockLocation.setAnchorLat(lat);
+                    mockLocation.setAnchorLon(lng);
+                    mockLocation.setTimeInterval(RANDOMIZE_LOCATION_INTERVAL);
+
+                    if (sharedPreferences.getBoolean("RANDOMIZE_RANGE", false)) {//随机路线
+                        float rangeRadius =Float.parseFloat(prefs.getString("RANDOMIZE_RANGE_RADIUS","0.1"));
+                        mockLocation.setRange(rangeRadius/100);
                     }
                     mockNetwork = new LocationProvider(LocationManager.NETWORK_PROVIDER, context);
                     mockGps = new LocationProvider(LocationManager.GPS_PROVIDER, context);
 
-                    mockNetwork.pushLocation(mLat, mLng);
-                    mockGps.pushLocation(mLat, mLng);
-                    Log.d("Location", "Lat: " + mLat + "  Lng:  " + mLng);
+                    mockLocation.location((lat1, lon) -> {
+                        mockNetwork.pushLocation(lat1, lon);
+                        mockGps.pushLocation(lat1, lon);
+                    });
+
+                    //randomizeTimer();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
+            }
         }).start();
 
-    }
-    //---------------------------------------------------------------------
-    private void randomize() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        try {
-            RANDOMIZE_LOCATION_INTERVAL = Integer.parseInt(prefs.getString("RANDOMIZE_LOCATION_INTERVAL", "60"));
-
-            float randomLat = randomLat();
-            float randomLng = randomLng();
-            if (sharedPreferences.getBoolean("RANDOMIZE_RANGE", false)) {//随机路线
-                float[] value = randomRange(prefs);
-                randomLat = value[0];
-                randomLng = value[1];
-                Log.d("Location", "Lat: " + randomLat + "  Lng:  " + randomLng);
-            }
-
-            mockNetwork = new LocationProvider(LocationManager.NETWORK_PROVIDER, context);
-            mockGps = new LocationProvider(LocationManager.GPS_PROVIDER, context);
-
-            mockNetwork.pushLocation(randomLat, randomLng);
-            mockGps.pushLocation(randomLat, randomLng);
-
-            randomizeTimer();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     private void randomizeTimer() {
@@ -295,40 +276,8 @@ public class LocationService extends Service {
 
             public void onFinish() {
                 isRunning = false;
-                randomize();
+                randomize(lat, lng);
             }
         }.start();
-    }
-
-    private float randomLat() {
-        Random r = new Random();
-        //return r.nextFloat() * (180) - 90;
-        return (float) (lat + r.nextFloat());
-    }
-
-    private float randomLng() {
-        Random r = new Random();
-        //return r.nextFloat() * (360) - 180;
-        return (float) (lng + r.nextFloat());
-    }
-
-    private float[] randomRange(SharedPreferences prefs) {
-        //int[] angles = new int[]{30, 60, 45};
-        int[] angles = new int[]{30, 60, 45};
-        Random random = new Random();
-        float radius = Float.valueOf(prefs.getString("RANDOMIZE_RANGE_RADIUS", "0.1f"));
-        float distance = (float) (Math.random() * radius) * (Math.random() > 0.5 ? 1 : -1);
-        //double randomValue = sin(angles[random.nextInt(angles.length)]) * distance;
-        float nextLng = (float) (lng + distance);
-        float nextLat = (float) (lat + distance);
-        return new float[]{nextLat, nextLng};
-    }
-
-    double sin(int num) {
-        return Math.sin(num * Math.PI / 180);
-    }
-
-    double cos(int num) {
-        return Math.cos(num * Math.PI / 180);
     }
 }

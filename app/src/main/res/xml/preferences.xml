@@ -15,7 +15,7 @@
             android:title="Randomize location" />
 
         <ListPreference
-            android:defaultValue="60"
+            android:defaultValue="5"
             android:dependency="RANDOMIZE_LOCATION"
             android:entries="@array/array_randomize_location_interval"
             android:entryValues="@array/array_randomize_location_interval_vals"
@@ -38,11 +38,11 @@
             android:title="range" />
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="Input Location">
-    <!--随机位置-->
-    <CheckBoxPreference
-        android:defaultValue="false"
-        android:key="LOCATION_INPUT"
-        android:title="使用导入的位置" />
-    </PreferenceCategory>
+<!--    <PreferenceCategory android:title="Input Location">-->
+<!--    &lt;!&ndash;随机位置&ndash;&gt;-->
+<!--    <CheckBoxPreference-->
+<!--        android:defaultValue="false"-->
+<!--        android:key="LOCATION_INPUT"-->
+<!--        android:title="使用导入的位置" />-->
+<!--    </PreferenceCategory>-->
 </PreferenceScreen>
