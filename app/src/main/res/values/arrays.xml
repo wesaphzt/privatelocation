@@ -2,6 +2,9 @@
 <resources>
     <!--randomize location interval-->
     <string-array name="array_randomize_location_interval">
+        <item>0.5 second</item>
+        <item>1 second</item>
+        <item>2 second</item>
         <item>3 second</item>
         <item>5 second</item>
         <item>10 second</item>
@@ -17,6 +20,9 @@
     </string-array>
 
     <string-array name="array_randomize_location_interval_vals">
+        <item>0.5</item>
+        <item>1</item>
+        <item>2</item>
         <item>3</item>
         <item>5</item>
         <item>10</item>
@@ -31,6 +37,9 @@
         <item>10800</item>
     </string-array>
     <string-array name="array_radius">
+        <item>100 m</item>
+        <item>300 m</item>
+        <item>500 m</item>
         <item>1 km</item>
         <item>2 km</item>
         <item>3 km</item>
@@ -41,6 +50,9 @@
     </string-array>
 
     <string-array name="array_radius_vals">
+        <item>0.01</item>
+        <item>0.03</item>
+        <item>0.05</item>
         <item>0.1</item>
         <item>0.2</item>
         <item>0.3</item>
