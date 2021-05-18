@@ -21,7 +21,7 @@ class MockLocation {
     var anchorLat = 37.12 //锚点Lat
     var anchorLon = 79.94//锚点Lon
     var range = 0.05 //范围 KM
-    val step = 0.5 / 1000  //步距 0.6M
+    var step = 0.5 / 1000  //步距 0.6M
     var timeInterval :Long = 5 //时间间隔5秒
     val seeds = arrayOf(360, 180, 90, 45, 30, 15, 5)
     var goCount = 0
@@ -38,16 +38,17 @@ class MockLocation {
             currentLat = nextPoint[0]
             currentLon = nextPoint[1]
             val location = LocationPoint(currentLat, currentLon)
-
+            listener.onChange(currentLat ,currentLon )
             if (outOfRange(currentLon, anchorLon, range, currentLat, anchorLat)) {
                 currentLat = anchorLat
                 currentLon = anchorLon
                 Log.i(TAG, "GO BACK")
+
                 continue
             }
             //startTime += timeInterval
-            Thread.sleep(timeInterval*1000);
-            listener.onChange(currentLat ,currentLon )
+            Thread.sleep(timeInterval*100);
+
             Log.i(TAG, "${index}次")
 
         }
