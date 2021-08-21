@@ -1,0 +1,102 @@
+<resources>
+    <string name="app_name">Private Location</string>
+    <string name="app_desc">Open-Source Location Privacy</string>
+
+    <string name="app_github_dev">https://github.com/wesaphzt</string>
+    <string name="app_github">https://github.com/wesaphzt/PrivateLocation</string>
+
+    <!--actionbar-->
+    <string name="action_favorites">Favoriten</string>
+    <string name="action_go_to">Gehe zu</string>
+    <string name="action_settings">Einstellungen</string>
+    <string name="action_donate">Spenden</string>
+    <string name="action_show_intro">Einführung</string>
+    <string name="action_about">Über</string>
+
+    <!--titles-->
+    <string name="fragment_donate_title">Spenden</string>
+    <string name="fragment_donate_clipboard_label">Adresse kopiert</string>
+    <string name="fragment_donate_clipboard_message">Adresse in die Zwischenablage kopiert</string>
+    <string name="fragment_about_title">Über</string>
+
+    <!--dialog fragments-->
+    <string name="dialog_favorites_title">Favorisierte Orte</string>
+    <string name="dialog_favorites_empty_view">Leer</string>
+    <string name="dialog_favorites_add_hint">Name</string>
+    <string name="dialog_favorites_add_lat_long">Breitengrad: %1$f \nLängengrad: %2$f</string>
+    <string name="dialog_favorites_list_name_hint">Name</string>
+    <string name="dialog_favorites_list_edit_desc">Bearbeiten</string>
+    <string name="dialog_favorites_list_del_desc">Löschen</string>
+
+    <string name="dialog_go_to_title">Koordinaten</string>
+    <string name="dialog_go_to_lat_hint">Breitengrad</string>
+    <string name="dialog_go_to_long_hint">Längengrad</string>
+    <string name="dialog_go_to_invalid_range">Ungültiger Bereich</string>
+    <string name="dialog_go_to_invalid_number">Ungültige Nummer</string>
+    <string name="dialog_go_to_invalid_empty">Darf nicht leer sein</string>
+
+    <!--main activity dialogs-->
+    <string name="dialog_first_run_title">Standort-Einstellungen</string>
+    <string name="dialog_first_run_message">Wenn Sie Probleme damit haben, dass Ihr tatsächlicher Standort offengelegt wird, insbesondere bei Google Maps-basierten Apps und Diensten,
+        wird empfohlen, alle Einstellungen in den Standort-Einstellungen zu deaktivieren, die WLAN-Zugangspunkte und mehr verwenden, um Ihren Standort schneller und genauer zu bestimmen.</string>
+
+    <string name="dialog_mock_location_title">Schein-Standort deaktiviert</string>
+    <string name="dialog_mock_location_message_m_over">Wählen Sie diese App in der Einstellung der Mock Location App aus.</string>
+    <string name="dialog_mock_location_message_under_m">Aktivieren Sie Schein-Standorte in den Einstellungen.</string>
+
+    <string name="dialog_developer_settings_title">Developer Mode deaktiviert</string>
+    <string name="dialog_developer_settings_message">Aktivieren Sie den Developer Mode, indem Sie 7 (sieben) Mal auf die Build-Nummer Ihres Telefons klicken.</string>
+
+    <string name="dialog_developer_settings_nougat_title">Entwickleroptionen</string>
+    <string name="dialog_developer_settings_nougat_message">Bitte stellen Sie sicher, dass die Entwickleroptionen aktiviert sind, bevor Sie versuchen, den Standort festzulegen, um Probleme unter Nougat zu vermeiden.
+        Sie können dies tun, indem Sie 7 (sieben) Mal auf die Build-Nummer Ihres Telefons klicken.</string>
+
+    <!--about-->
+    <string name="about_overview_logo_desc">About overview app logo</string>
+
+    <string name="about_contribute_card_title">Mitwirken</string>
+    <string name="about_contribute_title">Fehler melden</string>
+    <string name="about_contribute_desc">Fehler melden oder neue Funktionen anfragen</string>
+
+    <string name="about_developer_image_desc">Bild des Autors</string>
+    <string name="about_developer_title">wesaphzt</string>
+    <string name="about_developer_desc">Developer</string>
+    <string name="about_developer_card_title">Developer</string>
+
+    <string name="about_version_title">Version</string>
+    <string name="about_version_image_desc">Version image</string>
+
+    <string name="about_license_title">Lizenz</string>
+    <string name="about_license_desc">GPL v3.0 Lizenz</string>
+    <string name="about_license_image_desc">License image</string>
+
+    <string name="about_source_title">Quellcode</string>
+    <string name="about_source_image_desc">Quellcode image</string>
+
+    <string name="about_bug_report_image_desc">Fehler melden image</string>
+
+    <!--message-->
+    <string name="settings_randomize_toast">Wenn der Dienst gerade läuft, starten Sie ihn neu, um die Einstellung zu übernehmen.
+        Dies kann die Bildschirmtemperatur und die Lokalisierung beeinträchtigen.</string>
+
+    <!--widget-->
+    <string name="widget_start_text">Start</string>
+    <string name="widget_stop_text">Stop</string>
+
+    <string name="widget_prefs_service_id">SERVICE_STATUS</string>
+    <string name="widget_location_image_desc">Widget location image</string>
+
+    <!--intro-->
+    <string name="slider_page_one_title">@string/app_name</string>
+    <string name="slider_page_one_desc">Der perfekte Begleiter, um die Privatsphäre und Sicherheit Ihres Telefonstandorts zu schützen, indem er Ihren Standort an jeden Ort der Welt verschleiert.</string>
+    <string name="slider_page_two_title">Beschränken Sie Ihre Daten</string>
+    <string name="slider_page_two_desc">Viele Apps können im Hintergrund wiederholte und unnötige Standortabfragen machen und diese Daten oft an die Cloud zurücksenden.
+        Standortdaten sind persönlich und potenziell sensibel. Diese App kann helfen, Ihre Privatsphäre und Daten zu schützen.</string>
+    <string name="slider_page_three_title">Einstellungen überprüfen</string>
+    <string name="slider_page_three_desc">Stellen Sie für einen reibungslosen Ablauf sicher, dass Ihre Standort-Einstellungen kein WiFi, Netzwerk oder andere Methoden zur Bestimmung Ihres Standorts verwenden, die Ihren tatsächlichen Standort verraten können,
+        und dass die Batterieoptimierung für diese App ausgeschaltet ist.</string>
+
+    <!--donate-->
+    <string name="donate_note_text">Wenn Sie diese Apps nützlich finden, ziehen Sie in Erwägung, mich in irgendeiner Weise bei meiner Mission zu unterstützen, einfache, nützliche, datenschutzorientierte Open-Source-Apps zu erstellen.</string>
+    <string name="donate_note_image_desc">Text emoji image</string>
+</resources>
