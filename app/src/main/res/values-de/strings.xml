@@ -36,19 +36,19 @@
     <string name="dialog_go_to_invalid_empty">Darf nicht leer sein</string>
 
     <!--main activity dialogs-->
-    <string name="dialog_first_run_title">Standort Einstellungen</string>
+    <string name="dialog_first_run_title">Standort-Einstellungen</string>
     <string name="dialog_first_run_message">Wenn Sie Probleme damit haben, dass Ihr tatsächlicher Standort offengelegt wird, insbesondere bei Google Maps-basierten Apps und Diensten,
-        wird empfohlen, alle Einstellungen in den Standort-Einstellungen zu deaktivieren, die Wi-Fi-Punkte und mehr verwenden, um Ihren Standort schneller und genauer zu bestimmen.</string>
+        wird empfohlen, alle Einstellungen in den Standort-Einstellungen zu deaktivieren, die WLAN-Zugangspunkte und mehr verwenden, um Ihren Standort schneller und genauer zu bestimmen.</string>
 
     <string name="dialog_mock_location_title">Schein-Standort deaktiviert</string>
     <string name="dialog_mock_location_message_m_over">Wählen Sie diese App in der Einstellung der Mock Location App aus.</string>
-    <string name="dialog_mock_location_message_under_m">Aktivieren Sie Scheinstandorte in den Einstellungen.</string>
+    <string name="dialog_mock_location_message_under_m">Aktivieren Sie Schein-Standorte in den Einstellungen.</string>
 
     <string name="dialog_developer_settings_title">Developer Mode deaktiviert</string>
     <string name="dialog_developer_settings_message">Aktivieren Sie den Developer Mode, indem Sie 7 (sieben) Mal auf die Build-Nummer Ihres Telefons klicken.</string>
 
-    <string name="dialog_developer_settings_nougat_title">Developer Settings</string>
-    <string name="dialog_developer_settings_nougat_message">Bitte stellen Sie sicher, dass die Entwicklereinstellungen aktiviert sind, bevor Sie versuchen, den Standort festzulegen, um Probleme unter Nougat zu vermeiden.
+    <string name="dialog_developer_settings_nougat_title">Entwickleroptionen</string>
+    <string name="dialog_developer_settings_nougat_message">Bitte stellen Sie sicher, dass die Entwickleroptionen aktiviert sind, bevor Sie versuchen, den Standort festzulegen, um Probleme unter Nougat zu vermeiden.
         Sie können dies tun, indem Sie 7 (sieben) Mal auf die Build-Nummer Ihres Telefons klicken.</string>
 
     <!--about-->
@@ -56,7 +56,7 @@
 
     <string name="about_contribute_card_title">Mitwirken</string>
     <string name="about_contribute_title">Fehler melden</string>
-    <string name="about_contribute_desc">Fehler melden oder neue Features anfragen</string>
+    <string name="about_contribute_desc">Fehler melden oder neue Funktionen anfragen</string>
 
     <string name="about_developer_image_desc">Bild des Autors</string>
     <string name="about_developer_title">wesaphzt</string>
@@ -91,7 +91,7 @@
     <string name="slider_page_one_desc">Der perfekte Begleiter, um die Privatsphäre und Sicherheit Ihres Telefonstandorts zu schützen, indem er Ihren Standort an jeden Ort der Welt verschleiert.</string>
     <string name="slider_page_two_title">Beschränken Sie Ihre Daten</string>
     <string name="slider_page_two_desc">Viele Apps können im Hintergrund wiederholte und unnötige Standortabfragen machen und diese Daten oft an die Cloud zurücksenden.
-        Standortdaten sind persönlich und potenziell sehr sensibel. Diese App kann helfen, Ihre Privatsphäre und Daten zu schützen.</string>
+        Standortdaten sind persönlich und potenziell sensibel. Diese App kann helfen, Ihre Privatsphäre und Daten zu schützen.</string>
     <string name="slider_page_three_title">Einstellungen überprüfen</string>
     <string name="slider_page_three_desc">Stellen Sie für einen reibungslosen Ablauf sicher, dass Ihre Standort-Einstellungen kein WiFi, Netzwerk oder andere Methoden zur Bestimmung Ihres Standorts verwenden, die Ihren tatsächlichen Standort verraten können,
         und dass die Batterieoptimierung für diese App ausgeschaltet ist.</string>
