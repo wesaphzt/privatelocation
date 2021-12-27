@@ -1,7 +1,7 @@
 package com.wesaphzt.privatelocation.service;
 
 import android.content.Context;
-import android.location.Criteria;
+import android.location.*;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Build;
@@ -34,7 +34,7 @@ public class LocationProvider {
             }
 
             locationManager.addTestProvider(providerName, false, false, false, false, false,
-                    true, true, Criteria.POWER_LOW, Criteria.ACCURACY_FINE);
+                    true, true, android.location.provider.ProviderProperties.POWER_USAGE_LOW, android.location.provider.ProviderProperties.ACCURACY_FINE);
             locationManager.setTestProviderEnabled(providerName, true);
         } catch (SecurityException e) {
             throw new SecurityException("Error applying mock location");
