@@ -119,15 +119,15 @@ public class LocationService extends Service {
 
     private void setNotification() {
         //open main activity when clicked
-        pendingIntent = PendingIntent.getActivity(context, 0,
-                new Intent(context, MainActivity.class)
-                        .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP),
-                0);
+        Intent intent = new Intent(context, MainActivity.class)
+                .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+
+        pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_MUTABLE);
 
         //action when notification button clicked
         Intent intentAction = new Intent(context, ActionReceiver.class);
         intentAction.putExtra("location_service", "service_notification");
-        pendingCloseIntent = PendingIntent.getBroadcast(context, 0, intentAction, PendingIntent.FLAG_UPDATE_CURRENT);
+        pendingCloseIntent = PendingIntent.getBroadcast(context, 0, intentAction, PendingIntent.FLAG_IMMUTABLE|PendingIntent.FLAG_UPDATE_CURRENT);
 
         if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.M) {
             NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this);
