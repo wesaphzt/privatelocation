@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.wesaphzt.privatelocation">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
@@ -28,7 +27,8 @@
             android:label="@string/app_name"
             android:windowSoftInputMode="adjustPan"
             android:launchMode="singleTask"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -36,12 +36,14 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.wesaphzt.privatelocation.IntroActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name="com.wesaphzt.privatelocation.IntroActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:exported="true"/>
 
         <receiver android:name="com.wesaphzt.privatelocation.receivers.ActionReceiver"/>
 
-        <receiver android:name=".receivers.BootReceiver">
+        <receiver android:name=".receivers.BootReceiver" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
             </intent-filter>
@@ -52,7 +54,7 @@
             android:label="Service"
             android:permission="android.permission.BIND_JOB_SERVICE"/>
 
-        <receiver android:name=".widget.LocationWidgetProvider" >
+        <receiver android:name=".widget.LocationWidgetProvider" android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>

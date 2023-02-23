@@ -117,12 +117,12 @@ public class LocationService extends Service {
         pendingIntent = PendingIntent.getActivity(context, 0,
                 new Intent(context, MainActivity.class)
                         .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP),
-                0);
+                PendingIntent.FLAG_IMMUTABLE);
 
         //action when notification button clicked
         Intent intentAction = new Intent(context, ActionReceiver.class);
         intentAction.putExtra("location_service","service_notification");
-        pendingCloseIntent = PendingIntent.getBroadcast(context,0, intentAction, PendingIntent.FLAG_UPDATE_CURRENT);
+        pendingCloseIntent = PendingIntent.getBroadcast(context,0, intentAction, PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
 
         if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.M) {
             NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this);

@@ -217,10 +217,10 @@ public class MainActivity extends AppCompatActivity
         try {
             //24 - 25 (nougat): trouble builds, for some reason these builds always return true regardless of dev options enabled or not (dialog shown on first run for these users)
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                return Settings.Secure.getInt(context.getContentResolver(), Settings.Global.DEVELOPMENT_SETTINGS_ENABLED, 0) != 0;
+                return Settings.Global.getInt(context.getContentResolver(), Settings.Global.DEVELOPMENT_SETTINGS_ENABLED, 0) != 0;
             } else {
                 //17 - 23: dev options enabled by default but still return default false value, so set default to true here
-                return Settings.Secure.getInt(context.getContentResolver(), Settings.Global.DEVELOPMENT_SETTINGS_ENABLED, 1) != 0;
+                return Settings.Global.getInt(context.getContentResolver(), Settings.Global.DEVELOPMENT_SETTINGS_ENABLED, 1) != 0;
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -36,7 +36,7 @@ public class LocationWidgetProvider extends AppWidgetProvider {
 
             Intent intent = new Intent(context, LocationWidgetProvider.class);
             intent.setAction(ACTION_WIDGET_RECEIVER);
-            PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_IMMUTABLE);
 
             remoteViews.setOnClickPendingIntent(R.id.llWidget, pendingIntent);
 
