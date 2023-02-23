@@ -42,7 +42,6 @@
 
     <string name="dialog_mock_location_title">Mock Location Disabled</string>
     <string name="dialog_mock_location_message_m_over">Select this app in the mock location app setting.</string>
-    <string name="dialog_mock_location_message_under_m">Enable mock locations in settings.</string>
 
     <string name="dialog_developer_settings_title">Developer Mode Disabled</string>
     <string name="dialog_developer_settings_message">Enable developer options by clicking on your phone build number 7 (seven) times.</string>

@@ -200,16 +200,12 @@ public class MainActivity extends AppCompatActivity
 
     //location permission
     public  boolean isLocationPermissionGranted() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION)
-                    == PackageManager.PERMISSION_GRANTED) {
-                return true;
-            } else {
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
-                return false;
-            }
+        if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED) {
+            return true;
         } else {
-            return true; //permission automatically granted on sdk < 23 upon installation
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, MY_PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
+            return false;
         }
     }
 
@@ -465,12 +461,7 @@ public class MainActivity extends AppCompatActivity
                 //mock location app not set
 
                 //tailor message based on build
-                String buildMsg;
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    buildMsg = getString(R.string.dialog_mock_location_message_m_over);
-                } else {
-                    buildMsg = getString(R.string.dialog_mock_location_message_under_m);
-                }
+                String buildMsg = getString(R.string.dialog_mock_location_message_m_over);
 
                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
                 alertDialog
@@ -516,13 +507,8 @@ public class MainActivity extends AppCompatActivity
     public boolean isMockLocationEnabled(){
         boolean isMockLocation = false;
         try {
-            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                AppOpsManager opsManager = (AppOpsManager) context.getSystemService(Context.APP_OPS_SERVICE);
-                isMockLocation = (opsManager.checkOp(AppOpsManager.OPSTR_MOCK_LOCATION, android.os.Process.myUid(), BuildConfig.APPLICATION_ID)== AppOpsManager.MODE_ALLOWED);
-            } else {
-                //in marshmallow this will always return true
-                isMockLocation = !android.provider.Settings.Secure.getString(context.getContentResolver(), "mock_location").equals("0");
-            }
+            AppOpsManager opsManager = (AppOpsManager) context.getSystemService(Context.APP_OPS_SERVICE);
+            isMockLocation = (opsManager.checkOp(AppOpsManager.OPSTR_MOCK_LOCATION, android.os.Process.myUid(), BuildConfig.APPLICATION_ID)== AppOpsManager.MODE_ALLOWED);
         } catch (Exception e) {
             return isMockLocation;
         }

@@ -42,7 +42,6 @@
 
     <string name="dialog_mock_location_title">Localização falsa desabilitada</string>
     <string name="dialog_mock_location_message_m_over">Selecione esse aplicativo nas configurações de localização falsa.</string>
-    <string name="dialog_mock_location_message_under_m">Habilitar a localização falsa nas configurações.</string>
 
     <string name="dialog_developer_settings_title">Modo desenvolvedor desabilitado</string>
     <string name="dialog_developer_settings_message">Habilitar opções de desenvolvedor ao clicar na opção de versão do seu aparelho 7 (sete) vezes.</string>

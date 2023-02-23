@@ -42,7 +42,6 @@
 
     <string name="dialog_mock_location_title">Ubicación simulada deshabilitada</string>
     <string name="dialog_mock_location_message_m_over">Seleccione esta aplicación en los ajustes de ubicación simulada.</string>
-    <string name="dialog_mock_location_message_under_m">Active las ubicaciones simuladas en los ajustes.</string>
 
     <string name="dialog_developer_settings_title">Ajustes de desarrollador desactivados</string>
     <string name="dialog_developer_settings_message">Habilite las opciones de desarrollador haciendo clic en el número de compilación de su teléfono 7 (siete) veces.</string>

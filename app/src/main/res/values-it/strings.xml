@@ -42,7 +42,6 @@
 
     <string name="dialog_mock_location_title">Posizione Fittizia Disabilitata</string>
     <string name="dialog_mock_location_message_m_over">Selezionare questa applicazione nell\'impostazione dell\'app di posizione fittizia.</string>
-    <string name="dialog_mock_location_message_under_m">Attivare le posizioni simulate nelle impostazioni.</string>
 
     <string name="dialog_developer_settings_title">Modalità Sviluppatore Disattivata</string>
     <string name="dialog_developer_settings_message">Abilita le opzioni sviluppatore cliccando 7 (sette) volte sul numero build del tuo telefono.</string>

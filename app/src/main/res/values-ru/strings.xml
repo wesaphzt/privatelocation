@@ -42,7 +42,6 @@
 
     <string name="dialog_mock_location_title">Фиктивное местоположение отключено</string>
     <string name="dialog_mock_location_message_m_over">Выберите это приложение в настройках фиктивного местоположения.</string>
-    <string name="dialog_mock_location_message_under_m">Включите фиктивные местоположения в настройках.</string>
 
     <string name="dialog_developer_settings_title">Режим разработчика отключен</string>
     <string name="dialog_developer_settings_message">Включите параметры разработчика, кликнув на номер сборки своего телефона 7 (семь) раз.</string>

@@ -124,7 +124,7 @@ public class LocationService extends Service {
         intentAction.putExtra("location_service","service_notification");
         pendingCloseIntent = PendingIntent.getBroadcast(context,0, intentAction, PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
 
-        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.M) {
+        if (Build.VERSION.SDK_INT == Build.VERSION_CODES.M) {
             NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this);
             notification = notificationBuilder
                     .setSmallIcon(R.drawable.ic_notification_pin_drop_white_24dp)
@@ -152,9 +152,7 @@ public class LocationService extends Service {
                     .setOngoing(true)
                     .setPriority(PRIORITY_LOW)
                     .build();
-        }
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(CHANNEL_ID, CHANNEL_NAME, NotificationManager.IMPORTANCE_LOW);
             channel.setImportance(NotificationManager.IMPORTANCE_LOW);
             channel.setLockscreenVisibility(Notification.VISIBILITY_SECRET);
